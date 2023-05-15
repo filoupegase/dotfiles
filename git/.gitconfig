@@ -1,0 +1,4 @@
+[core]
+        editor = code --wait
+        pager = delta
+        excludesfile = ~/.gitignore_global
