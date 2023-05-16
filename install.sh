@@ -13,6 +13,7 @@ if [[ ! -d ~/.config ]]; then
   mkdir -p ~/.config
 fi
 ln -sf "$DOTFILES_PATH/zsh/.zshrc" ~/.zshrc
+ln -sf "$DOTFILES_PATH/zsh/.zprofile" ~/.zprofile
 
 # this file will be sourced by .zshrc for more sensitive variables/settings
 touch ~/.zshrc.local

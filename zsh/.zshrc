@@ -11,6 +11,11 @@ for _dotzsh in "$ZSH_CUSTOM"/custom/{common,env,path,aliases,functions,plugins}.
 done
 unset _dotzsh
 
+# macos.zsh has aliases, functions, etc specific to macOS:
+if [[ "$OSTYPE" = "darwin"* ]] && [[ -f "$ZSH_CUSTOM"/custom/macos.zsh ]]; then
+  source "$ZSH_CUSTOM"/custom/macos.zsh
+fi
+
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
