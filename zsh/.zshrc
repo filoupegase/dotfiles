@@ -3,4 +3,6 @@
 # path to this directory:
 export ZSH_CUSTOM=~/.dotfiles/zsh
 
-echo "im heeereee"
+if [[ -f ~/.zshrc.local ]]: then
+    source ~/.zshrc.local
+fi
