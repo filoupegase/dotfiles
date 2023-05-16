@@ -8,8 +8,6 @@ export ZSH_CUSTOM=~/.dotfiles/zsh
 #
 # done
 
-if [[ -f ~/.zshrc.local ]]: then
-    source ~/.zshrc.local
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
 fi
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
