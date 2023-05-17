@@ -2,5 +2,5 @@
 
 ## 🚧 Work In Progress
 ```bash
-git clone  ~/.dotfiles
+git clone git@github.com:filoupegase/dotfiles.git ~/.dotfiles
 ```
