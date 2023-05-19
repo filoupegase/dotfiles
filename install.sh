@@ -18,6 +18,14 @@ ln -sf "$DOTFILES_PATH/zsh/.zprofile" ~/.zprofile
 # this file will be sourced by .zshrc for more sensitive variables/settings
 touch ~/.zshrc.local
 
+# prepare zinit manually
+ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
+
+if [[ ! -d "$ZINIT_HOME" ]]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
 # wow
 echo ""
 echo "🎉 It actually worked"
