@@ -26,3 +26,29 @@ zinit ice wait lucid \
   atload"async_init" \
   src"async.zsh"
 zinit light mafredri/zsh-async
+
+# z
+zinit ice wait lucid blockf \
+  atclone"
+    mv -vf z.1 ${ZINIT[MAN_DIR]}/man1
+  " \
+  atpull"%atclone" \
+  atload"_Z_DATA=~/.zdata" \
+  src"z.sh"
+zinit light rupa/z
+
+# grab exa (better ls) binary
+zinit ice from"gh-r" as"command" \
+  mv"bin/exa* -> exa" \
+  atclone"
+    mv -vf completions/exa.zsh _exa
+    mv -vf man/exa.1 ${ZINIT[MAN_DIR]}/man1
+    mv -vf man/exa_colors.5 ${ZINIT[MAN_DIR]}/man5
+  " \
+  atpull"%atclone" \
+  atload"
+    alias ls='exa --color=auto -GF --icons --group-directories-first'
+    alias ll='exa --color=auto -1laF --git --icons --group-directories-first --ignore-glob=\".DS_Store*|~*\"'
+    alias lt='ll -T -L=2'
+  "
+zinit light ogham/exa
