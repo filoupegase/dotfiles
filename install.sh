@@ -31,6 +31,10 @@ fi
 # the remainder of the setup tasks are OS-specific
 if [[ "$OSTYPE" = "darwin"* ]]; then
   ln -sf "$DOTFILES_PATH/Brewfile" ~/Brewfile
+
+  # suppress terminal login banners
+  touch ~/.hushlogin
+
 else
   echo "I don't recognize this OS... skipping extra steps."
 fi

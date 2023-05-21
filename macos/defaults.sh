@@ -22,6 +22,19 @@ if ! command -v brew &>/dev/null; then
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 fi
 
+# Disable analytics
+# https://docs.brew.sh/Analytics
+brew analytics off
+
+# Update Homebrew recipes
+brew update
+
+# Install more current ZSH and set as default shell
+# https://stackoverflow.com/a/44549662/1438024
+brew install zsh
+sudo sh -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
+chsh -s "$(brew --prefix)/bin/zsh"
+
 # modifie le temps de l'animation que prends les apps du doc a s'afficher + le reset
 #defaults write com.apple.dock autohide-delay -float 0
 #defaults write com.apple.dock autohide-time-modifier -float 0.3; killall Dock
