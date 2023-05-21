@@ -28,6 +28,13 @@ if [[ ! -d "$ZINIT_HOME" ]]; then
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+# the remainder of the setup tasks are OS-specific
+if [[ "$OSTYPE" = "darwin"* ]]; then
+  ln -sf "$DOTFILES_PATH/Brewfile" ~/Brewfile
+else
+  echo "I don't recognize this OS... skipping extra steps."
+fi
+
 # wow
 echo ""
 echo "🎉 It actually worked"

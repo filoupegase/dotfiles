@@ -2,7 +2,6 @@
 
 # check for zinit and clone if not installed
 ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
-
 if [[ ! -d "$ZINIT_HOME" ]]; then
   mkdir -p "$(dirname "$ZINIT_HOME")"
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -114,20 +113,145 @@ zinit ice from"gh-r" as"command" \
   src"key-bindings.zsh"
 zinit light junegunn/fzf
 
+# grab vivid binary (for all the colors)
+# https://github.com/sharkdp/vivid/tree/master/themes
+# shellcheck disable=SC2016
+zinit ice from"gh-r" as"command" \
+  mv"vivid-*/vivid -> vivid" \
+  atload'export LS_COLORS="$(vivid generate snazzy)"'
+zinit load sharkdp/vivid
 
+# history substring searching
+# only bind these keys once they're ready
+bindkey -r "^[[A"
+bindkey -r "^[[B"
+zinit ice wait lucid \
+  atload"
+    zmodload zsh/terminfo
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+  "
+zinit light zsh-users/zsh-history-substring-search
 
+# tab completions via fzf
+zinit ice wait"1" lucid \
+  has"fzf" \
+  atload"
+    zstyle ':completion:*' verbose yes
+    zstyle ':completion:*' list-colors \${(s.:.)LS_COLORS}
+    zstyle ':completion:*:descriptions' format '[%d]'
+    zstyle ':completion::complete:*:*:files' ignored-patterns '.DS_Store' 'Icon?' '.Trash'
+    zstyle ':completion::complete:*:*:globbed-files' ignored-patterns '.DS_Store' 'Icon?' '.Trash'
+    zstyle ':completion::complete:rm:*:globbed-files' ignored-patterns
+    zstyle ':fzf-tab:*' fzf-command fzf
+    zstyle ':fzf-tab:*' fzf-flags '--ansi'
+    zstyle ':fzf-tab:*' fzf-bindings \
+      'tab:accept' \
+      'ctrl-y:preview-page-up' \
+      'ctrl-v:preview-page-down' \
+      'ctrl-e:execute-silent(\${VISUAL:-code} \$realpath >/dev/null 2>&1)' \
+      'ctrl-w:execute(\${EDITOR:-nano} \$realpath >/dev/tty </dev/tty)+refresh-preview'
+    zstyle ':fzf-tab:*' fzf-min-height 15
+    zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
+      'git diff --no-ext-diff \$word | delta --paging=never --no-gitconfig --line-numbers --file-style=omit --hunk-header-style=omit --theme=base16'
+    zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
+      'git --no-pager log --color=always --format=oneline --abbrev-commit --follow \$word'
+    zstyle ':fzf-tab:complete:man:*' fzf-preview \
+      'man -P \"col -bx\" \$word | $FZF_PREVIEW_FILE_COMMAND --language=man'
+    zstyle ':fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest' fzf-preview \
+      'brew info \$word'
+    zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview \
+      'echo \${(P)word}'
+    zstyle ':fzf-tab:complete:*:options' fzf-preview
+    zstyle ':fzf-tab:complete:*:options' fzf-flags '--no-preview'
+    zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
+    zstyle ':fzf-tab:complete:*:argument-1' fzf-flags '--no-preview'
+    zstyle ':fzf-tab:complete:*:*' fzf-preview \
+      '($FZF_PREVIEW_FILE_COMMAND \$realpath || $FZF_PREVIEW_DIR_COMMAND \$realpath) 2>/dev/null'
+  "
+zinit light Aloxaf/fzf-tab
 
+# TODO: fix git-* completions, apparently there's some conflict with brew's git
+# https://github.com/Aloxaf/fzf-tab/wiki/Preview#git
+# shellcheck disable=SC2016
+zinit ice wait lucid as"completions" \
+  id-as"git-completions" \
+  has"git" \
+  dl"https://github.com/git/git/raw/HEAD/contrib/completion/git-completion.zsh -> _git" \
+  dl"https://github.com/git/git/raw/HEAD/contrib/completion/git-completion.bash -> git-completion.bash" \
+  atpull"zinit creinstall -q ." \
+  atload'
+    zstyle ":completion:*:*:git:*" script "$PWD/git-completion.bash"
+  ' \
+  nocompile
+zinit light zdharma-continuum/null
 
+# use zinit to track completions from non-zinit programs
+zinit ice wait lucid blockf as"completions" \
+  id-as"local-completions" \
+  dl"https://github.com/docker/cli/raw/HEAD/contrib/completion/zsh/_docker -> _docker" \
+  dl"https://github.com/docker/compose/raw/master/contrib/completion/zsh/_docker-compose -> _docker-compose" \
+  dl"https://github.com/zsh-users/zsh-completions/raw/HEAD/src/_node -> _node" \
+  dl"https://github.com/zsh-users/zsh-completions/raw/HEAD/src/_yarn -> _yarn" \
+  dl"https://github.com/zsh-users/zsh-completions/raw/HEAD/src/_bundle -> _bundle" \
+  dl"https://github.com/zsh-users/zsh-completions/raw/HEAD/src/_rails -> _rails" \
+  dl"https://github.com/zsh-users/zsh-completions/raw/HEAD/src/_golang -> _golang" \
+  dl"https://github.com/zsh-users/zsh-completions/raw/HEAD/src/_shellcheck -> _shellcheck" \
+  dl"https://github.com/zsh-users/zsh-completions/raw/HEAD/src/_httpie -> _httpie" \
+  dl"https://github.com/rbenv/rbenv/raw/HEAD/completions/rbenv.zsh -> _rbenv" \
+  dl"https://github.com/pyenv/pyenv/raw/HEAD/completions/pyenv.zsh -> _pyenv" \
+  atclone"
+    command -v volta &>/dev/null && volta completions zsh > _volta || true
+    command -v npm &>/dev/null && npm completion > _npm || true
+    command -v gh &>/dev/null && gh completion -s zsh > _gh || true
+    command -v op &>/dev/null && op completion zsh > _op || true
+    command -v hugo &>/dev/null && hugo completion zsh > _hugo || true
+  " \
+  atpull"zinit creinstall -q ." \
+  nocompile
+zinit light zdharma-continuum/null
 
+# additional completions
+# zinit ice wait lucid blockf as"completion" \
+#   atpull"zinit creinstall -q ."
+# zinit light zsh-users/zsh-completions
 
+# autosuggestions, trigger precmd hook upon load
+zinit ice wait lucid \
+  atload"_zsh_autosuggest_start"
+zinit light zsh-users/zsh-autosuggestions
 
+# syntax highlighting
+zinit ice wait lucid \
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"
+zinit light zsh-users/zsh-syntax-highlighting
 
+# 1Password plugins: https://developer.1password.com/docs/cli/shell-plugins/
+zinit ice wait lucid \
+  id-as"op-plugins" \
+  has"op" \
+  if"[[ -f ~/.config/op/plugins.sh ]]"
+zinit snippet ~/.config/op/plugins.sh
 
+# oh-my-zsh leftovers
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/lib
+zinit snippet OMZ::lib/clipboard.zsh
+zinit snippet OMZ::lib/termsupport.zsh
 
+# iTerm2 integration
+# shellcheck disable=SC2016
+zinit ice lucid \
+  if'[[ "$TERM_PROGRAM" = "iTerm.app" ]]' \
+  pick"shell_integration/zsh" \
+  sbin"utilities/*"
+zinit light gnachman/iTerm2-shell-integration
 
-
-
-
-
-
-
+# starship prompt
+zinit ice from"gh-r" as"command" \
+  atclone"
+    ./starship init zsh --print-full-init > init.zsh
+    ./starship completions zsh > _starship
+  " \
+  atpull"%atclone" \
+  src"init.zsh"
+zinit light starship/starship
