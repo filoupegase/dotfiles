@@ -16,13 +16,13 @@ ln -sf "$DOTFILES_PATH/zsh/.zshrc" ~/.zshrc
 ln -sf "$DOTFILES_PATH/zsh/.zprofile" ~/.zprofile
 ln -sf "$DOTFILES_PATH/git/.gitconfig" ~/.gitconfig
 ln -sf "$DOTFILES_PATH/git/.gitignore_global" ~/.gitignore_global
+ln -sf "$DOTFILES_PATH/starship/config.toml" ~/.config/starship.toml
 
 # this file will be sourced by .zshrc for more sensitive variables/settings
 touch ~/.zshrc.local
 
 # prepare zinit manually
 ZINIT_HOME="$HOME/.local/share/zinit/zinit.git"
-
 if [[ ! -d "$ZINIT_HOME" ]]; then
   mkdir -p "$(dirname "$ZINIT_HOME")"
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
