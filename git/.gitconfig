@@ -3,7 +3,7 @@
     pager = delta
     excludesfile = ~/.gitignore_global
 [user]
-    name = coco
+    name = filoupegase
     email = loisoncorentin@yahoo.fr
 [github]
     user = filoupegase
