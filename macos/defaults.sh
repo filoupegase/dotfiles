@@ -1,40 +1,36 @@
 #!/usr/bin/env bash
 
+#  Modified and patched together from a few sources:
+#
+#    https://mths.be/macos
+#    https://github.com/paulirish/dotfiles/blob/master/.osx
+#    https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos
+
 set -e
+
+# Change new hostname here if necessary
+COMPUTER_NAME="CL-MBA"
+
+# Quit System Preferences.app if open
+osascript -e 'tell application "System Preferences" to quit'
 
 # Ask for the administrator password upfront
 sudo -v
 
-# Make sure macOS is fully up to date before doing anything
-sudo softwareupdate --install --all
+# Keep-alive: update existing `sudo` time stamp until this script has finished
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
-# Install Rosetta 2
-sudo softwareupdate --install-rosetta --agree-to-license
+###############################################################################
+# Dock                                                                        #
+###############################################################################
 
-# Install Xcode Command Line Tools
-sudo xcode-select --install
-# Accept Xcode license
-sudo xcodebuild -license accept
+# Automatically hide and show the Dock without delay
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.3
 
-# This whole thing kinda hinges on having Homebrew...
-# Check for it and install from GitHub if it's not there
-if ! command -v brew &>/dev/null; then
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-fi
-
-# Disable analytics
-# https://docs.brew.sh/Analytics
-brew analytics off
-
-# Update Homebrew recipes
-brew update
-
-# Install more current ZSH and set as default shell
-# https://stackoverflow.com/a/44549662/1438024
-brew install zsh
-sudo sh -c "echo $(brew --prefix)/bin/zsh >> /etc/shells"
-chsh -s "$(brew --prefix)/bin/zsh"
-
-# modifie le temps de l'animation que prends les apps du doc a s'afficher + le reset
-#defaults write com.apple.dock autohide-delay -float 0
-#defaults write com.apple.dock autohide-time-modifier -float 0.3; killall Dock
+# Group windows by application in Mission Control
+defaults write com.apple.dock expose-group-by-app -bool true

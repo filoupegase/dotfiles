@@ -7,6 +7,8 @@ echo ""
 
 # location of the *full repo* (defaults to ~/.dotfiles)
 DOTFILES_PATH="${DOTFILES_PATH:="$HOME/.dotfiles"}"
+# location of this script (should be right next to all the other files, but we handle that next if it's not)
+INSTALLER_PATH="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
 # set up symlinks from various default paths to files in this repo
 if [[ ! -d ~/.config ]]; then
@@ -30,11 +32,23 @@ fi
 
 # the remainder of the setup tasks are OS-specific
 if [[ "$OSTYPE" = "darwin"* ]]; then
+  # final symlinks
+  #  if [[ ! -d ~/.ssh ]]; then
+  #    mkdir -p ~/.ssh && chmod 700 ~/.ssh
+  #  fi
   ln -sf "$DOTFILES_PATH/Brewfile" ~/Brewfile
 
   # suppress terminal login banners
   touch ~/.hushlogin
 
+  # shellcheck disable=SC1090,SC1091
+  source "$DOTFILES_PATH/macos/macos.sh"
+elif [[ "$OSTYPE" = "linux-gnu"* ]]; then
+  # final symlinks
+  #    ln -sf "$DOTFILES_PATH/nano/default.nanorc" ~/.nanorc
+
+  # shellcheck disable=SC1090,SC1091
+  source "$DOTFILES_PATH/linux/linux.sh"
 else
   echo "I don't recognize this OS... skipping extra steps."
 fi
