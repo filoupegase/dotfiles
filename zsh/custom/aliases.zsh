@@ -17,3 +17,7 @@ alias gsb="git status -sb"
 
 # Check your current local IP address:
 alias iplocal="ipconfig getifaddr en0"
+
+# misc.
+alias screenfetch="neofetch"
+alias weather="curl 'https://wttr.in/?format=v2'"
