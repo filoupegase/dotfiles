@@ -34,3 +34,10 @@ defaults write com.apple.dock autohide-time-modifier -float 0.3
 
 # Group windows by application in Mission Control
 defaults write com.apple.dock expose-group-by-app -bool true
+
+###############################################################################
+# iTerm 2                                                                     #
+###############################################################################
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
