@@ -14,7 +14,6 @@ source "$ZINIT_HOME/zinit.zsh"
 # ensure compinit recognizes zinit's changes
 autoload -Uz _zinit
 # shellcheck disable=SC2154
-# shellcheck disable=SC2034
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # various zinit add-ons
@@ -212,9 +211,9 @@ zinit ice wait lucid blockf as"completions" \
 zinit light zdharma-continuum/null
 
 # additional completions
-zinit ice wait lucid blockf as"completion" \
-  atpull"zinit creinstall -q ."
-zinit light zsh-users/zsh-completions
+# zinit ice wait lucid blockf as"completion" \
+#   atpull"zinit creinstall -q ."
+# zinit light zsh-users/zsh-completions
 
 # autosuggestions, trigger precmd hook upon load
 zinit ice wait lucid \
