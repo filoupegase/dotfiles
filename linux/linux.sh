@@ -14,3 +14,8 @@ if ! command -v brew &>/dev/null; then
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
   sudo rm /.dockerenv
 fi
+
+# install tailscale
+if ! command -v tailscale &>/dev/null; then
+  curl -fsSL https://tailscale.com/install.sh | bash
+fi
