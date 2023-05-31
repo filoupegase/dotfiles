@@ -10,6 +10,12 @@ DOTFILES_PATH="${DOTFILES_PATH:="$HOME/.dotfiles"}"
 # location of this script (should be right next to all the other files, but we handle that next if it's not)
 INSTALLER_PATH="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
+# if this is a codespace, link automatically cloned dotfiles repo to the expected DOTFILES_PATH
+# https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-personalization-for-codespaces#troubleshooting-dotfiles
+if [[ "$CODESPACES" = "true" ]] && [[ -d /workspaces/.codespaces/.persistedshare/dotfiles ]]; then
+  ln -sf /workspaces/.codespaces/.persistedshare/dotfiles "$DOTFILES_PATH"
+fi
+
 # set up symlinks from various default paths to files in this repo
 if [[ ! -d ~/.config ]]; then
   mkdir -p ~/.config
@@ -36,6 +42,8 @@ if [[ "$OSTYPE" = "darwin"* ]]; then
   #  if [[ ! -d ~/.ssh ]]; then
   #    mkdir -p ~/.ssh && chmod 700 ~/.ssh
   #  fi
+  #ln -sf "$DOTFILES_PATH/ssh/.ssh/config" ~/.ssh/config
+  #ln -sf "$DOTFILES_PATH/nano/brew.nanorc" ~/.nanorc
   ln -sf "$DOTFILES_PATH/Brewfile" ~/Brewfile
 
   # suppress terminal login banners

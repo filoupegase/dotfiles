@@ -59,7 +59,7 @@ brew "ffmpeg"  #, args: ["with-libvpx"]
 brew "imagemagick"  #, args: ["with-webp"]
 brew "jemalloc"
 brew "less"
-brew "libsass", args: ["HEAD"]
+brew "libsass", args: ["HEAD"] #brew cleanup libsass
 brew "libyaml"
 brew "mtr"
 brew "openssl@1.1" if OS.mac?
@@ -81,7 +81,7 @@ brew "gh"
 brew "1password/tap/1password-cli" if OS.mac?
 brew "angular-cli"
 brew "asciinema"
-brew "aws-shell"
+brew "aws-shell"  #brew cleanup aws-shell
 brew "awscli"
 brew "carthage"
 brew "cocoapods"
@@ -98,7 +98,7 @@ brew "hashicorp/tap/vault"
 brew "htop"
 brew "httpie"
 brew "httrack"
-brew "hugo", args: ["HEAD"]
+brew "hugo", args: ["HEAD"] #brew cleanup aws-shell
 brew "ipinfo-cli"
 brew "iproute2mac"
 brew "jq"
@@ -117,8 +117,8 @@ brew "pandoc"
 brew "php"
 brew "planetscale/tap/pscale"
 brew "pngcrush"
-brew "postgresql"
-brew "protobuf"
+brew "postgresql" #check error :: Formula postgresql was renamed to postgresql@14.
+brew "protobuf" #brew cleanup aws-shell
 brew "pyenv" unless OS.linux?
 # brew "python"
 # brew "python@3"
@@ -155,7 +155,7 @@ brew "aircrack-ng"
 brew "apktool"
 brew "bettercap"
 brew "binutils"
-brew "binwalk"
+brew "binwalk"  #brew cleanup aws-shell
 brew "dnsx"
 brew "fcrackzip"
 brew "geoip"
@@ -249,9 +249,7 @@ cask "spotify"
 
 # Communication/Social
 cask "discord"
-cask "skype"
 cask "slack"
-cask "zoomus"
 
 # Gaming
 cask "steam"
@@ -274,12 +272,12 @@ cask "tor-browser"
 #  Drivers                    #
 ###############################
 
-cask "homebrew/cask-drivers/hp-easy-start"
-cask "homebrew/cask-drivers/logitech-camera-settings"
-cask "homebrew/cask-drivers/logi-options-plus"
-cask "homebrew/cask-drivers/logitech-unifying"
-cask "homebrew/cask-drivers/razer-synapse"
-cask "homebrew/cask-drivers/sonos"
+#cask "homebrew/cask-drivers/hp-easy-start"
+#cask "homebrew/cask-drivers/logitech-camera-settings"
+#cask "homebrew/cask-drivers/logi-options-plus"
+#cask "homebrew/cask-drivers/logitech-unifying"
+#cask "homebrew/cask-drivers/razer-synapse"
+#cask "homebrew/cask-drivers/sonos"
 
 ###############################
 #  Fonts                      #
@@ -307,30 +305,30 @@ cask "homebrew/cask-fonts/font-sf-pro"
 ###############################
 
 # Apple
-mas "Apple Configurator 2", id: 1037126344
-mas "Compressor", id: 424390742
-mas "Developer", id: 640199958
-mas "Final Cut Pro", id: 424389933
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Logic Pro", id: 634148309
-mas "Motion", id: 434290957
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "TestFlight", id: 899247664
-mas "Transporter", id: 1450874784
-mas "Xcode", id: 497799835
-
-# Third Party
-mas "1Blocker", id: 1365531024
-mas "1Password for Safari", id: 1569813296
-mas "Amphetamine", id: 937984704
-mas "Drafts", id: 1435957248
-mas "Magnet", id: 441258766
-mas "Microsoft Remote Desktop", id: 1295203466
-mas "Shazam", id: 897118787
-mas "Silicon Info", id: 1542271266
-mas "Speedtest", id: 1153157709
-mas "VMware Remote Console", id: 1230249825
-mas "WireGuard", id: 1451685025
+#mas "Apple Configurator 2", id: 1037126344
+#mas "Compressor", id: 424390742
+#mas "Developer", id: 640199958
+#mas "Final Cut Pro", id: 424389933
+#mas "GarageBand", id: 682658836
+#mas "iMovie", id: 408981434
+#mas "Keynote", id: 409183694
+#mas "Logic Pro", id: 634148309
+#mas "Motion", id: 434290957
+#mas "Numbers", id: 409203825
+#mas "Pages", id: 409201541
+#mas "TestFlight", id: 899247664
+#mas "Transporter", id: 1450874784
+#mas "Xcode", id: 497799835
+#
+## Third Party
+#mas "1Blocker", id: 1365531024
+#mas "1Password for Safari", id: 1569813296
+#mas "Amphetamine", id: 937984704
+#mas "Drafts", id: 1435957248
+#mas "Magnet", id: 441258766
+#mas "Microsoft Remote Desktop", id: 1295203466
+#mas "Shazam", id: 897118787
+#mas "Silicon Info", id: 1542271266
+#mas "Speedtest", id: 1153157709
+#mas "VMware Remote Console", id: 1230249825
+#mas "WireGuard", id: 1451685025
