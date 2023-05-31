@@ -78,7 +78,7 @@ brew "git-lfs"
 brew "gh"
 
 # Mostly ordinary binaries
-brew "1password/tap/1password-cli" if OS.mac?
+#brew "1password/tap/1password-cli" if OS.mac?
 brew "angular-cli"
 brew "asciinema"
 brew "aws-shell"  #brew cleanup aws-shell
@@ -184,97 +184,97 @@ brew "vbindiff"
 #  macOS Apps via Cask        #
 ###############################
 
-cask_args appdir: "/Applications"
-
-# System Utilities
-cask "airbuddy"
-cask "appcleaner"
-cask "backblaze"
-cask "carbon-copy-cloner"
-cask "cleanmymac"
-cask "coconutbattery"
-cask "daisydisk"
-cask "dropbox"
-cask "etrecheckpro"
-cask "geekbench"
-cask "istat-menus"
-cask "macupdater"
-cask "the-unarchiver"
-cask "transmission"
-cask "vnc-viewer"
-
-# Passwords, VPNs, other Security
-cask "1password"
-cask "authy"
-cask "gpg-suite"
-cask "little-snitch"
-cask "tailscale"
-cask "tunnelblick"
-cask "yubico-authenticator"
-cask "yubico-yubikey-manager"
-
-# Development/Work
-cask "adobe-creative-cloud"
-cask "android-platform-tools", args: { appdir: "~/Applications" }
-cask "chromedriver"
-cask "eclipse-java"
-cask "github"
-cask "google-cloud-sdk", args: { appdir: "~/Applications" }
-cask "imageoptim"
-cask "iterm2"
-cask "jetbrains-toolbox"
-cask "microsoft-office"
-cask "ngrok/ngrok/ngrok"
-cask "sequel-pro"
-cask "sketch"
-cask "tableplus"
-cask "thunderbird"
-cask "transmit"
-cask "visual-studio-code"
-
-# Virtual Machines (& Docker)
-cask "docker"
-cask "parallels"
-# cask "virtualbox"
-cask "virtualbox-beta"  # supports M1!
-
-# Media
-cask "beamer"
-cask "handbrake"
-cask "iina"
-cask "obs"
-cask "plex-media-player"
-cask "pocket-casts"
-cask "spotify"
-
-# Communication/Social
-cask "discord"
-cask "slack"
-
-# Gaming
-cask "steam"
-
-# Pentesting
-cask "burp-suite"
-cask "charles"
-cask "metasploit"
-cask "wifi-explorer"
-cask "wireshark"
-
-# Browsers
-cask "firefox"
-cask "firefox-developer-edition"
-cask "google-chrome"
-cask "safari-technology-preview"
-cask "tor-browser"
+#cask_args appdir: "/Applications"
+#
+## System Utilities
+#cask "airbuddy"
+#cask "appcleaner"
+#cask "backblaze"
+#cask "carbon-copy-cloner"
+#cask "cleanmymac"
+#cask "coconutbattery"
+#cask "daisydisk"
+#cask "dropbox"
+#cask "etrecheckpro"
+#cask "geekbench"
+#cask "istat-menus"
+#cask "macupdater"
+#cask "the-unarchiver"
+#cask "transmission"
+#cask "vnc-viewer"
+#
+## Passwords, VPNs, other Security
+#cask "1password"
+#cask "authy"
+#cask "gpg-suite"
+#cask "little-snitch"
+#cask "tailscale"
+#cask "tunnelblick"
+#cask "yubico-authenticator"
+#cask "yubico-yubikey-manager"
+#
+## Development/Work
+#cask "adobe-creative-cloud"
+#cask "android-platform-tools", args: { appdir: "~/Applications" }
+#cask "chromedriver"
+#cask "eclipse-java"
+#cask "github"
+#cask "google-cloud-sdk", args: { appdir: "~/Applications" }
+#cask "imageoptim"
+#cask "iterm2"
+#cask "jetbrains-toolbox"
+#cask "microsoft-office"
+#cask "ngrok/ngrok/ngrok"
+#cask "sequel-pro"
+#cask "sketch"
+#cask "tableplus"
+#cask "thunderbird"
+#cask "transmit"
+#cask "visual-studio-code"
+#
+## Virtual Machines (& Docker)
+#cask "docker"
+#cask "parallels"
+## cask "virtualbox"
+#cask "virtualbox-beta"  # supports M1!
+#
+## Media
+#cask "beamer"
+#cask "handbrake"
+#cask "iina"
+#cask "obs"
+#cask "plex-media-player"
+#cask "pocket-casts"
+#cask "spotify"
+#
+## Communication/Social
+#cask "discord"
+#cask "slack"
+#
+## Gaming
+#cask "steam"
+#
+## Pentesting
+#cask "burp-suite"
+#cask "charles"
+#cask "metasploit"
+#cask "wifi-explorer"
+#cask "wireshark"
+#
+## Browsers
+#cask "firefox"
+#cask "firefox-developer-edition"
+#cask "google-chrome"
+#cask "safari-technology-preview"
+#cask "tor-browser"
 
 ###############################
 #  Drivers                    #
 ###############################
 
-#cask "homebrew/cask-drivers/hp-easy-start"
-#cask "homebrew/cask-drivers/logitech-camera-settings"
-#cask "homebrew/cask-drivers/logi-options-plus"
+cask "homebrew/cask-drivers/hp-easy-start"
+cask "homebrew/cask-drivers/logitech-camera-settings"
+cask "homebrew/cask-drivers/logi-options-plus"
 #cask "homebrew/cask-drivers/logitech-unifying"
 #cask "homebrew/cask-drivers/razer-synapse"
 #cask "homebrew/cask-drivers/sonos"

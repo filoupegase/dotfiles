@@ -41,4 +41,4 @@ brew bundle || true
 
 # Set macOS defaults
 # Needs to be last since this will restart everything when done
-source ./macos/defaults.sh
+#source ./macos/defaults.sh
