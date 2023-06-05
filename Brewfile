@@ -79,7 +79,6 @@ brew "gh"
 
 # Mostly ordinary binaries
 #brew "1password/tap/1password-cli" if OS.mac?
-brew "angular-cli"
 brew "asciinema"
 brew "aws-shell"  #brew cleanup aws-shell
 brew "awscli"
