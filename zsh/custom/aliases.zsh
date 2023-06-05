@@ -11,6 +11,9 @@ alias ll="ls -lah"
 alias la="ls -a"
 alias l="ll"
 
+# easier dotfile tinkering
+alias shreload="exec \$SHELL"
+
 # git
 alias gs="git status"
 alias gsb="git status -sb"
