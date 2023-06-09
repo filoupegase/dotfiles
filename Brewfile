@@ -59,7 +59,7 @@ brew "ffmpeg"  #, args: ["with-libvpx"]
 brew "imagemagick"  #, args: ["with-webp"]
 brew "jemalloc"
 brew "less"
-brew "libsass", args: ["HEAD"] #brew cleanup libsass
+brew "libsass", args: ["HEAD"]
 brew "libyaml"
 brew "mtr"
 brew "openssl@1.1" if OS.mac?
@@ -80,7 +80,7 @@ brew "gh"
 # Mostly ordinary binaries
 #brew "1password/tap/1password-cli" if OS.mac?
 brew "asciinema"
-brew "aws-shell"  #brew cleanup aws-shell
+brew "aws-shell"
 brew "awscli"
 brew "carthage"
 brew "cocoapods"
@@ -97,7 +97,7 @@ brew "hashicorp/tap/vault"
 brew "htop"
 brew "httpie"
 brew "httrack"
-brew "hugo", args: ["HEAD"] #brew cleanup aws-shell
+brew "hugo", args: ["HEAD"]
 brew "ipinfo-cli"
 brew "iproute2mac"
 brew "jq"
@@ -117,7 +117,7 @@ brew "php"
 brew "planetscale/tap/pscale"
 brew "pngcrush"
 brew "postgresql" #check error :: Formula postgresql was renamed to postgresql@14.
-brew "protobuf" #brew cleanup aws-shell
+brew "protobuf"
 brew "pyenv" unless OS.linux?
 # brew "python"
 # brew "python@3"
