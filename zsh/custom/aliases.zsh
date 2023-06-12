@@ -18,6 +18,11 @@ alias shreload="exec \$SHELL"
 alias gs="git status"
 alias gsb="git status -sb"
 
+# Node/NPM/Yarn
+alias npr="npm run"
+alias fresh_npm="rm -rf node_modules package-lock.json && npm install"
+alias fresh_yarn="rm -rf node_modules yarn.lock && yarn install"
+
 # Check your current local IP address:
 alias iplocal="ipconfig getifaddr en0"
 
