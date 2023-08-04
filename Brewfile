@@ -229,7 +229,6 @@ brew "vbindiff"
 #cask "tableplus"
 #cask "thunderbird"
 #cask "transmit"
-#cask "visual-studio-code"
 #
 ## Virtual Machines (& Docker)
 #cask "docker"
@@ -244,7 +243,6 @@ brew "vbindiff"
 #cask "obs"
 #cask "plex-media-player"
 #cask "pocket-casts"
-#cask "spotify"
 #
 ## Communication/Social
 #cask "discord"
@@ -307,9 +305,6 @@ cask "homebrew/cask-fonts/font-sf-pro"
 #mas "Apple Configurator 2", id: 1037126344
 #mas "Compressor", id: 424390742
 #mas "Developer", id: 640199958
-#mas "Final Cut Pro", id: 424389933
-#mas "GarageBand", id: 682658836
-#mas "iMovie", id: 408981434
 #mas "Keynote", id: 409183694
 #mas "Logic Pro", id: 634148309
 #mas "Motion", id: 434290957
@@ -317,7 +312,6 @@ cask "homebrew/cask-fonts/font-sf-pro"
 #mas "Pages", id: 409201541
 #mas "TestFlight", id: 899247664
 #mas "Transporter", id: 1450874784
-#mas "Xcode", id: 497799835
 #
 ## Third Party
 #mas "1Blocker", id: 1365531024
