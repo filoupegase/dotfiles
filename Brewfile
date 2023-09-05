@@ -78,7 +78,8 @@ brew "git-lfs"
 brew "gh"
 
 # Mostly ordinary binaries
-#brew "1password/tap/1password-cli" if OS.mac?
+brew "1password/tap/1password-cli" if OS.mac?
+brew "angular-cli"
 brew "asciinema"
 brew "aws-shell"
 brew "awscli"
@@ -116,7 +117,7 @@ brew "pandoc"
 brew "php"
 brew "planetscale/tap/pscale"
 brew "pngcrush"
-brew "postgresql" #check error :: Formula postgresql was renamed to postgresql@14.
+brew "postgresql"
 brew "protobuf"
 brew "pyenv" unless OS.linux?
 # brew "python"
@@ -154,7 +155,7 @@ brew "aircrack-ng"
 brew "apktool"
 brew "bettercap"
 brew "binutils"
-brew "binwalk"  #brew cleanup aws-shell
+brew "binwalk"
 brew "dnsx"
 brew "fcrackzip"
 brew "geoip"
@@ -183,25 +184,25 @@ brew "vbindiff"
 #  macOS Apps via Cask        #
 ###############################
 
-#cask_args appdir: "/Applications"
-#
-## System Utilities
-#cask "airbuddy"
-#cask "appcleaner"
-#cask "backblaze"
-#cask "carbon-copy-cloner"
-#cask "cleanmymac"
-#cask "coconutbattery"
-#cask "daisydisk"
-#cask "dropbox"
-#cask "etrecheckpro"
-#cask "geekbench"
-#cask "istat-menus"
-#cask "macupdater"
-#cask "the-unarchiver"
-#cask "transmission"
-#cask "vnc-viewer"
-#
+cask_args appdir: "/Applications"
+
+# System Utilities
+cask "airbuddy"
+cask "appcleaner"
+cask "backblaze"
+cask "carbon-copy-cloner"
+cask "cleanmymac"
+cask "coconutbattery"
+cask "daisydisk"
+cask "dropbox"
+cask "etrecheckpro"
+cask "geekbench"
+cask "istat-menus"
+cask "macupdater"
+cask "the-unarchiver"
+cask "transmission"
+cask "vnc-viewer"
+
 ## Passwords, VPNs, other Security
 #cask "1password"
 #cask "authy"

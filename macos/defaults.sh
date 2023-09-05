@@ -35,14 +35,27 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 ###############################################################################
 
 # Automatically hide and show the Dock without delay
+defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.3
 
 # Group windows by application in Mission Control
 defaults write com.apple.dock expose-group-by-app -bool true
 
+# Disable hot corners
+defaults write com.apple.dock wvous-tl-corner -int 0
+defaults write com.apple.dock wvous-tr-corner -int 0
+defaults write com.apple.dock wvous-bl-corner -int 0
+
+# Lock screen via bottom-right hot corner
+defaults write com.apple.dock wvous-br-corner -int 13
+defaults write com.apple.dock wvous-br-modifier -int 0
+
 # Don't show recently used applications in the Dock
 defaults write com.Apple.Dock show-recents -bool false
+
+# Disable the Launchpad gesture (pinch with thumb and three fingers)
+defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
 ###############################################################################
 # Photos                                                                      #
