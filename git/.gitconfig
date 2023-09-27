@@ -5,6 +5,15 @@
 [user]
     name = filoupegase
     email = loisoncorentin@yahoo.fr
+[init]
+    defaultBranch = main
+[push]
+    default = tracking
+;     gpgSign = if-asked
+[pull]
+    rebase = true
+[commit]
+;     gpgsign = true
 [github]
     user = filoupegase
 [color]

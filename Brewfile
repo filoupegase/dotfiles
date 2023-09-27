@@ -202,6 +202,7 @@ cask "macupdater"
 cask "the-unarchiver"
 cask "transmission"
 cask "vnc-viewer"
+cask "silicon-info"
 
 ## Passwords, VPNs, other Security
 #cask "1password"
