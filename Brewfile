@@ -79,7 +79,6 @@ brew "gh"
 
 # Mostly ordinary binaries
 brew "1password/tap/1password-cli" if OS.mac?
-brew "angular-cli"
 brew "asciinema"
 brew "aws-shell"
 brew "awscli"
@@ -218,7 +217,6 @@ cask "silicon-info"
 #cask "adobe-creative-cloud"
 #cask "android-platform-tools", args: { appdir: "~/Applications" }
 #cask "chromedriver"
-#cask "eclipse-java"
 #cask "github"
 #cask "google-cloud-sdk", args: { appdir: "~/Applications" }
 #cask "imageoptim"
