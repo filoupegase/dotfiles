@@ -37,19 +37,17 @@ brew "gnu-tar"
 brew "gnu-which"
 brew "gnupg"
 brew "gnutls"
-brew "grep"
 brew "make"
 brew "moreutils"
 
-# More recent versions of some macOS tools
+# Install more recent versions of some macOS tools.
+brew "vim", args: ["with-override-system-vi"]
 brew "curl", link: true
 brew "gcc"
 brew "gmp"
-brew "nano"
 brew "openssh"
 brew "screen"
 brew "unzip", link: true
-brew "vim"  #, args: ["with-override-system-vi"]
 
 # Other useful binaries
 brew "ack"
@@ -70,7 +68,7 @@ brew "sidneys/homebrew/unrar" if OS.mac?
 brew "ssh-copy-id", link: true
 brew "tmux"
 brew "tree"
-brew "wget"  #, args: ["with-iri"]
+brew "wget", args: ["with-iri"]
 
 # Git
 brew "git"

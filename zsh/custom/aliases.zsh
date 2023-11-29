@@ -29,3 +29,6 @@ alias iplocal="ipconfig getifaddr en0"
 # misc.
 alias screenfetch="neofetch"
 alias weather="curl 'https://wttr.in/?format=v2'"
+
+# emeria
+alias fr='echo "fr158785"'

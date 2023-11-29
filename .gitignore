@@ -2,3 +2,6 @@
 **/.ssh/known_hosts*
 *id_rsa*
 *id_ed25519*
+
+.idea/
+.DS_Store

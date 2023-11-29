@@ -1,20 +1,26 @@
 [core]
-    editor = code --wait
-    pager = delta
-    excludesfile = ~/.gitignore_global
+	editor = code --wait
+	pager = delta
+	excludesfile = ~/.gitignore_global
+
+	# Make `git rebase` safer on macOS
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
 [user]
-    name = filoupegase
     email = loisoncorentin@yahoo.fr
+    name = filoupegase
 [init]
     defaultBranch = main
 [push]
-    default = tracking
-;     gpgSign = if-asked
+	default = tracking
+	gpgSign = if-asked
 [pull]
-    rebase = true
+	rebase = true
 [commit]
-;     gpgsign = true
+	gpgsign = false
 [github]
     user = filoupegase
+[hub]
+    host = github.com
 [color]
     ui = auto

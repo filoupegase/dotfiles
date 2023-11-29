@@ -1,16 +1,20 @@
 # https://starship.rs/config/
-"$schema" = "https://starship.rs/config-schema.json"
 
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
 
 [git_branch]
 symbol = '🌱 '
-truncation_length = 4
 truncation_symbol = ''
 ignore_branches = ['master', 'main']
 
 [git_commit]
 commit_hash_length = 4
 tag_symbol = '🔖 '
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
 
 [git_status]
 conflicted = '🏳'
@@ -24,3 +28,16 @@ modified = '📝'
 staged = '[++\($count\)](green)'
 renamed = '👅'
 deleted = '🗑'
+
+windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
+
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold blue'
+symbol = '🅰 '
+[aws.region_aliases]
+ap-southeast-2 = 'au'
+us-east-1 = 'va'
+[aws.profile_aliases]
+CompanyGroupFrobozzOnCallAccess = 'Frobozz'
