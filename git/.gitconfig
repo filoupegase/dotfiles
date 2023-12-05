@@ -17,7 +17,10 @@
 [pull]
 	rebase = true
 [commit]
-	gpgsign = false
+	#gpgsign = true
+[rebase]
+	autoSquash = true
+	autoStash = true
 [github]
     user = filoupegase
 [hub]
