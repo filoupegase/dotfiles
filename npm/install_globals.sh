@@ -12,10 +12,12 @@ volta install node@latest # remove when LTS officially supports arm64
 volta install npm@8
 volta install yarn@1
 volta fetch node@lts # not native on M1 but good to have
+volta install pnpm@latest
 
 volta list node
 volta list npm
 volta list yarn
+volta list pnpm
 
 # npm ls --global --parseable --depth=0 | awk '{gsub(/\/.*\//,"",$1); print}' | sort -u
 packages=(

@@ -146,6 +146,8 @@ brew "xz"
 brew "yq"
 brew "yt-dlp"
 brew "zopfli"
+brew "duck"
+brew "ngrok"
 
 # Pentesting tools
 brew "aircrack-ng"
