@@ -8,9 +8,6 @@
 
 set -e
 
-# Change new hostname here if necessary
-COMPUTER_NAME="CL-MBA"
-
 # Quit System Preferences.app if open
 osascript -e 'tell application "System Preferences" to quit'
 
@@ -19,16 +16,6 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-###############################################################################
-# General UI/UX                                                               #
-###############################################################################
-
-# Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "$COMPUTER_NAME"
-sudo scutil --set HostName "$COMPUTER_NAME"
-sudo scutil --set LocalHostName "$COMPUTER_NAME"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
 ###############################################################################
 # Dock                                                                        #
