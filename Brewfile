@@ -76,7 +76,7 @@ brew "git-lfs"
 brew "gh"
 
 # Mostly ordinary binaries
-brew "1password/tap/1password-cli" if OS.mac?
+brew "1password-cli"
 brew "asciinema"
 brew "aws-shell"
 brew "awscli"
@@ -204,7 +204,7 @@ cask "vnc-viewer"
 cask "silicon-info"
 
 ## Passwords, VPNs, other Security
-#cask "1password"
+cask "1password"
 #cask "authy"
 #cask "gpg-suite"
 #cask "little-snitch"
