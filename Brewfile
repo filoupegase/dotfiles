@@ -41,7 +41,7 @@ brew "make"
 brew "moreutils"
 
 # Install more recent versions of some macOS tools.
-brew "vim", args: ["with-override-system-vi"]
+brew 'vim', args: ['override-system-vi']
 brew "curl", link: true
 brew "gcc"
 brew "gmp"
