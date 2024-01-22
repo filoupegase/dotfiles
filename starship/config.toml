@@ -41,3 +41,6 @@ ap-southeast-2 = 'au'
 us-east-1 = 'va'
 [aws.profile_aliases]
 CompanyGroupFrobozzOnCallAccess = 'Frobozz'
+
+[nodejs]
+format = 'via [🤖 $version](bold green) '
