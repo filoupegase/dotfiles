@@ -3,6 +3,14 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+[battery]
+disabled = true
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+read_only = "🔒"
+
 [git_branch]
 symbol = '🌱 '
 truncation_symbol = ''
@@ -39,8 +47,15 @@ symbol = '🅰 '
 [aws.region_aliases]
 ap-southeast-2 = 'au'
 us-east-1 = 'va'
+
 [aws.profile_aliases]
 CompanyGroupFrobozzOnCallAccess = 'Frobozz'
 
 [nodejs]
 format = 'via [🤖 $version](bold green) '
+
+[docker_context]
+format = 'via [🐋 $context](blue bold)'
+
+[deno]
+format = 'via [🦕 $version](green bold) '
