@@ -48,11 +48,10 @@ fi
 # the remainder of the setup tasks are OS-specific
 if [[ "$OSTYPE" = "darwin"* ]]; then
   # final symlinks
-  #  if [[ ! -d ~/.ssh ]]; then
-  #    mkdir -p ~/.ssh && chmod 700 ~/.ssh
-  #  fi
-  #ln -sf "$DOTFILES_PATH/ssh/.ssh/config" ~/.ssh/config
-  #ln -sf "$DOTFILES_PATH/nano/brew.nanorc" ~/.nanorc
+    if [[ ! -d ~/.ssh ]]; then
+      mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    fi
+  ln -sf "$DOTFILES_PATH/ssh/.ssh/config" ~/.ssh/config
   ln -sf "$DOTFILES_PATH/Brewfile" ~/Brewfile
 
   # suppress terminal login banners
