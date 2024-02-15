@@ -15,8 +15,11 @@ alias l="ll"
 alias shreload="exec \$SHELL"
 
 # git
-alias gs="git status"
-alias gsb="git status -sb"
+alias g="git"
+alias gc="git commit -m"  # + commit message
+alias gca="git add . && git commit -m"  # + commit message
+alias gs="git status -sb"
+alias gl="git log --pretty=short"
 
 # Node/NPM/Yarn
 alias npr="npm run"
