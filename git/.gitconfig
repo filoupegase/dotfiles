@@ -9,7 +9,7 @@
 [user]
     email = loisoncorentin@yahoo.fr
     name = Corentin Loison
-	signingkey = 9FF92A32B457CAC1
+	signingkey = D90EC4814942ED2E
 [init]
     defaultBranch = main
 [push]
