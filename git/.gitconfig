@@ -8,7 +8,8 @@
 	trustctime = false
 [user]
     email = loisoncorentin@yahoo.fr
-    name = filoupegase
+    name = Corentin Loison
+	signingkey = 9FF92A32B457CAC1
 [init]
     defaultBranch = main
 [push]
@@ -17,13 +18,34 @@
 [pull]
 	rebase = true
 [commit]
-	#gpgsign = true
+	gpgsign = true
 [rebase]
 	autoSquash = true
 	autoStash = true
+[diff]
+	tool = default-difftool
+[difftool "default-difftool"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[interactive]
+	diffFilter = delta --color-only --features=interactive
 [github]
     user = filoupegase
 [hub]
     host = github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[mergetool]
+	keepBackup = true
 [color]
-    ui = auto
+	ui = auto
+[delta]
+	features = decorations
+[delta "interactive"]
+	keep-plus-minus-markers = false
+[delta "decorations"]
+	hunk-header-style = omit
+	line-numbers = true
+	syntax-theme = base16
