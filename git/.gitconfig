@@ -8,7 +8,7 @@
 	trustctime = false
 [user]
     email = loisoncorentin@yahoo.fr
-    name = Corentin Loison
+    name = corentin.loison
 	signingkey = D90EC4814942ED2E
 [init]
     defaultBranch = main
