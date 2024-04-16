@@ -55,7 +55,7 @@ CompanyGroupFrobozzOnCallAccess = 'Frobozz'
 format = 'via [🤖 $version](bold green) '
 
 [docker_context]
-format = 'via [🐋 $context](blue bold)'
+format = 'via [🐋 $context](blue bold) '
 
 [deno]
 format = 'via [🦕 $version](green bold) '

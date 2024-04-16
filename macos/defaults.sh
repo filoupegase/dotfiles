@@ -9,7 +9,7 @@
 set -e
 
 # Change new hostname here if necessary
-COMPUTER_NAME="CL-MBA"
+COMPUTER_NAME="CL-MBP"
 
 # Quit System Preferences.app if open
 osascript -e 'tell application "System Preferences" to quit'

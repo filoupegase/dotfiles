@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# check https://jarv.is/notes/cool-bash-tricks-for-your-terminal-dotfiles/
+# check https://corent-in.vercel.app/notes/cool-bash-tricks-for-your-terminal/
 
 # allow sudo-able aliases
 alias sudo="sudo "
