@@ -61,7 +61,7 @@ if [[ "$OSTYPE" = "darwin"* ]]; then
   source "$DOTFILES_PATH/macos/macos.sh"
 elif [[ "$OSTYPE" = "linux-gnu"* ]]; then
   # final symlinks
-  #    ln -sf "$DOTFILES_PATH/nano/default.nanorc" ~/.nanorc
+  # ln -sf "$DOTFILES_PATH/nano/default.nanorc" ~/.nanorc
 
   # shellcheck disable=SC1090,SC1091
   source "$DOTFILES_PATH/linux/linux.sh"

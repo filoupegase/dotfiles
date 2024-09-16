@@ -12,20 +12,23 @@ system_update() {
 
   # homebrew
   echo -e "${YELLOW}Updating Homebrew formulae and casks...${NC}"
-  brew update
-  brew upgrade
+  brew update && brew upgrade
   # avoid annoying `(latest) != latest` cask updates:
   # shellcheck disable=SC2046
   brew upgrade $(brew outdated --greedy --verbose | awk '$2 !~ /(latest)/ {print $1}')
   brew cleanup
 
-  # node, npm, yarn
+  # node, npm, yarn, pnpm
   echo -e "${YELLOW}Updating global NPM/Yarn packages...${NC}"
   volta fetch node@latest # pull latest non-LTS version but don't use it
   volta install node@lts
   volta install yarn@1
+  volta install pnpm@latest
   volta run --node lts --no-yarn -- npm update --global
   volta run --node lts --yarn 1 -- yarn global upgrade
+
+  # emeria packages
+  volta install @fonciastark/foncia-duck@latest
 
   # zinit & plugins
   echo -e "${YELLOW}Updating zinit...${NC}"

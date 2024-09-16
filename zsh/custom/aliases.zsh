@@ -38,8 +38,12 @@ alias gist="gh gist create --web"
 
 # Node/NPM/Yarn
 alias npr="npm run"
+
+# find all node_modules in root directories and delete them
+alias fresh_all="find . -name 'node_modules' -type d -prune -exec rm -rf {} + ;"
 alias fresh_npm="rm -rf node_modules package-lock.json && npm install"
 alias fresh_yarn="rm -rf node_modules yarn.lock && yarn install"
+alias fresh_pnpm="rm -rf node_modules pnpm-lock.yaml && pnpm store prune && pnpm install"
 
 # Check your current local IP address:
 alias iplocal="ipconfig getifaddr en0"
@@ -50,3 +54,11 @@ alias weather="curl 'https://wttr.in/?format=v2'"
 
 # emeria
 alias fr='echo "fr158785"'
+
+# Millenuim
+alias plato="pnpm nx run plato:start"
+alias bo="pnpm nx run front-accounting:start"
+alias abd="pnpm nx run front-abd:start"
+alias ml-admin="pnpm nx run front-ml-admin:start"
+alias pdata="pnpm nx run plato:pdata-runner"  # + script path
+alias anton="pdata scripts/pdata/ML-12106.ts"
