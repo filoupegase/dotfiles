@@ -52,13 +52,25 @@ alias iplocal="ipconfig getifaddr en0"
 alias screenfetch="neofetch"
 alias weather="curl 'https://wttr.in/?format=v2'"
 
-# emeria
+# EMERIA
 alias fr='echo "fr158785"'
 
-# Millenuim
+# plato
 alias plato="pnpm nx run plato:start"
-alias bo="pnpm nx run front-accounting:start"
-alias abd="pnpm nx run front-abd:start"
-alias ml-admin="pnpm nx run front-ml-admin:start"
-alias pdata="pnpm nx run plato:pdata-runner"  # + script path
+alias plato-skip-cache="pnpm store prune && pnpm nx run plato:start --skip-nx-cache"
+alias worker-plato="pnpm nx run worker all"
+alias flow-plato="pnpm nx run workflows --all"
+
+# NX
+alias run-bo="pnpm nx run front-accounting:start"
+alias run-adb="pnpm nx run front-adb:start"
+alias run-ml-admin="pnpm nx run front-ml-admin:start"
+alias pdata="pnpm nx run plato:pdata-runner" # + script path
 alias anton="pdata scripts/pdata/ML-12106.ts"
+
+# MS
+alias ms-ged="cd ~/emeria/millenium/applications && duck start --ms-ged"
+alias ms-ged_worker="cd ~/emeria/millenium/applications/ms-ged && pnpm nx run start:worker all"
+alias ms-document="cd ~/emeria && duck start --ms-document"
+alias ms-customer="cd ~/emeria/millenium/applications && duck start --ms-customer"
+alias docus="cd ~/emeria/millenium && pnpm nx run docus:start"
