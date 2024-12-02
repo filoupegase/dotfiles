@@ -117,14 +117,11 @@ brew "pngcrush"
 brew "postgresql"
 brew "protobuf"
 brew "pyenv" unless OS.linux?
-# brew "python"
-# brew "python@3"
 brew "qemu"
 brew "rbenv" unless OS.linux?
 brew "rclone"
 brew "rlwrap"
 brew "ruby-build" unless OS.linux?
-# brew "ruby"
 brew "rust"
 brew "s3cmd"
 brew "sass/sass/dart-sass-embedded"
@@ -137,16 +134,13 @@ brew "subversion"
 brew "svn"
 brew "tor"
 brew "torsocks"
-brew "volta" unless OS.linux?
 brew "whois", link: true
 brew "wireguard-tools"
 brew "wp-cli"
 brew "xz"
-# brew "youtube-dl"
 brew "yq"
 brew "yt-dlp"
 brew "zopfli"
-brew "duck"
 brew "ngrok"
 
 # Pentesting tools

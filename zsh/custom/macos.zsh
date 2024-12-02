@@ -27,7 +27,7 @@ system_update() {
   volta run --node lts --no-yarn -- npm update --global
   volta run --node lts --yarn 1 -- yarn global upgrade
 
-  # emeria packages
+  # EMERIA
   volta install @fonciastark/foncia-duck@latest
 
   # zinit & plugins

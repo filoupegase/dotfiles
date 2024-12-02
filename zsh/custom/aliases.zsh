@@ -57,7 +57,7 @@ alias fr='echo "fr158785"'
 
 # plato
 alias plato="pnpm nx run plato:start"
-alias plato-skip-cache="pnpm store prune && pnpm nx run plato:start --skip-nx-cache"
+alias plato-skip-cache="pnpm store prune && pnpm nx reset && pnpm nx run plato:start --skip-nx-cache"
 alias worker-plato="pnpm nx run worker all"
 alias flow-plato="pnpm nx run workflows --all"
 
