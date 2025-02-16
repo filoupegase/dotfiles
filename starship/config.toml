@@ -3,18 +3,37 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+[aws]
+disabled = true
+
 [battery]
 disabled = true
+
+[cmd_duration]
+min_time = 2500
+
+[character]
+error_symbol = "[✖](bold red) "
 
 [directory]
 truncation_length = 0
 truncate_to_repo = false
-read_only = "🔒"
+read_only = "🔒 "
+
+[directory.substitutions]
+"~" = ".* ~"
+#" ~/Documents" = " ~/Documents"
+#" ~/Downloads" = " ~/Downloads"
+#" ~/Desktop" = " ~/Desktop"
+#" ~/Music" = " ~/Music"
+#" ~/Pictures" = " ~/Pictures"
+#" ~/Library" = " ~/Library"
+#" ~/Dropbox" = " ~/Dropbox"
+#" ~/source" = " ~/source"
+#" ~/.dotfiles" = " ~/.dotfiles"
 
 [git_branch]
-symbol = '🕊️ '
-truncation_symbol = ''
-ignore_branches = ['master', 'main']
+symbol = '️⎇  '
 
 [git_commit]
 commit_hash_length = 4
@@ -25,31 +44,31 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 cherry_pick = '[🍒 PICKING](bold red)'
 
 [git_status]
-conflicted = '🏳 '
-ahead = '🏃‍♂️ 🏎💨'
-behind = '😰'
-diverged = '😵'
-up_to_date = ''
-untracked = '🤷'
-stashed = '🚡📦'
-modified = '📝'
-staged = '[++\($count\)](green)'
-renamed = '👅'
-deleted = '🗑'
+conflicted = "⚔️ "
+ahead = "🏃‍♂️ 🏎️ 💨 ×${count} "
+behind = "🐢 ×${count} "
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
+untracked = "🛤️  ×${count} "
+stashed = "📦 "
+modified = "📝 ×${count} "
+staged = "🗃️  ×${count} "
+renamed = "📛 ×${count} "
+deleted = "🗑️  ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
 
 windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
 
+#[aws]
+#format = 'on [$symbol($profile )(\($region\) )]($style)'
+#style = 'bold blue'
+#symbol = '🅰 '
+#[aws.region_aliases]
+#ap-southeast-2 = 'au'
+#us-east-1 = 'va'
 
-[aws]
-format = 'on [$symbol($profile )(\($region\) )]($style)'
-style = 'bold blue'
-symbol = '🅰 '
-[aws.region_aliases]
-ap-southeast-2 = 'au'
-us-east-1 = 'va'
-
-[aws.profile_aliases]
-CompanyGroupFrobozzOnCallAccess = 'Frobozz'
+#[aws.profile_aliases]
+#CompanyGroupFrobozzOnCallAccess = 'Frobozz'
 
 [nodejs]
 format = 'via [🤖 $version](bold green) '
@@ -59,3 +78,6 @@ format = 'via [🐋 $context](blue bold) '
 
 [deno]
 format = 'via [🦕 $version](green bold) '
+
+[vagrant]
+disabled = true

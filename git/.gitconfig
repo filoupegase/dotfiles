@@ -7,18 +7,18 @@
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 [user]
-    email = loisoncorentin@yahoo.fr
+	email = corentin.loison@emeria.eu
     name = corentin.loison
-	signingkey = D90EC4814942ED2E
+ 	signingkey = A6FF39FA84A5E40C
 [init]
     defaultBranch = main
 [push]
 	default = tracking
-	gpgSign = if-asked
+    gpgSign = if-asked
 [pull]
 	rebase = true
 [commit]
-	gpgsign = true
+	gpgsign = false
 [rebase]
 	autoSquash = true
 	autoStash = true
@@ -49,3 +49,11 @@
 	hunk-header-style = omit
 	line-numbers = true
 	syntax-theme = base16
+
+# The contents of this file are included only for GitLab.com URLs
+[includeIf "hasconfig:remote.*.url:https://gitlab.com/**"]
+
+# Edit this line to point to your alternative configuration file
+path = ~/.gitconfig-gitlab
+[gpg]
+	program = gpg2

@@ -65,6 +65,7 @@ alias flow-plato="pnpm nx run workflows --all"
 alias run-bo="pnpm nx run front-accounting:start"
 alias run-adb="pnpm nx run front-adb:start"
 alias run-ml-admin="pnpm nx run front-ml-admin:start"
+alias run-poloc="pnpm nx run front-poloc:start"
 alias pdata="pnpm nx run plato:pdata-runner" # + script path
 alias anton="pdata scripts/pdata/ML-12106.ts"
 
