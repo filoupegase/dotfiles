@@ -1,7 +1,9 @@
 # https://starship.rs/config/
+"$schema" = "https://starship.rs/config-schema.json"
 
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+# A minimal left prompt:
+# format = """$character"""
+# right_format = """$all"""
 
 [aws]
 disabled = true
@@ -11,6 +13,9 @@ disabled = true
 
 [cmd_duration]
 min_time = 2500
+
+[container]
+disabled = true
 
 [character]
 error_symbol = "[✖](bold red) "
@@ -32,8 +37,11 @@ read_only = "🔒 "
 #" ~/source" = " ~/source"
 #" ~/.dotfiles" = " ~/.dotfiles"
 
+[gcloud]
+disabled = true
+
 [git_branch]
-symbol = '️⎇  '
+symbol = " "
 
 [git_commit]
 commit_hash_length = 4
@@ -70,6 +78,9 @@ windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.e
 #[aws.profile_aliases]
 #CompanyGroupFrobozzOnCallAccess = 'Frobozz'
 
+[golang]
+symbol = "🐹 "
+
 [nodejs]
 format = 'via [🤖 $version](bold green) '
 
@@ -78,6 +89,27 @@ format = 'via [🐋 $context](blue bold) '
 
 [deno]
 format = 'via [🦕 $version](green bold) '
+
+[package]
+symbol = "📦 "
+
+[php]
+symbol = "🐘 "
+
+[python]
+symbol = "🐍 "
+pyenv_version_name = true
+
+[ruby]
+symbol = "💎 "
+
+[rust]
+symbol = "🦀 "
+
+[username]
+format = "[ $user]($style) "
+style_root = "bold bright-red"
+style_user = "bold bright-red"
 
 [vagrant]
 disabled = true
