@@ -45,7 +45,7 @@ symbol = " "
 
 [git_commit]
 commit_hash_length = 4
-tag_symbol = '🔖 '
+tag_symbol = '  '
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
@@ -79,19 +79,23 @@ windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.e
 #CompanyGroupFrobozzOnCallAccess = 'Frobozz'
 
 [golang]
-symbol = "🐹 "
+symbol = " "
 
 [nodejs]
-format = 'via [🤖 $version](bold green) '
+symbol = " "
 
 [docker_context]
-format = 'via [🐋 $context](blue bold) '
+format = 'via [ $context](blue bold) '
+symbol = " "
 
 [deno]
 format = 'via [🦕 $version](green bold) '
 
+[c]
+symbol = " "
+
 [package]
-symbol = "📦 "
+symbol = " "
 
 [php]
 symbol = "🐘 "
@@ -100,11 +104,14 @@ symbol = "🐘 "
 symbol = "🐍 "
 pyenv_version_name = true
 
+[rlang]
+symbol = "󰟔 "
+
 [ruby]
-symbol = "💎 "
+symbol = " "
 
 [rust]
-symbol = "🦀 "
+symbol = "󱘗 "
 
 [username]
 format = "[ $user]($style) "
