@@ -65,9 +65,6 @@ if [[ "$OSTYPE" = darwin* ]]; then
 
   source "$DOTFILES/macos/macos.sh"
 elif [[ "$OSTYPE" = linux-gnu* ]]; then
-  # final symlinks
-  ln -sf "$DOTFILES/nano/default.nanorc" ~/.nanorc
-
   source "$DOTFILES/linux/linux.sh"
 else
   echo "I don't recognize this OS... skipping extra steps."

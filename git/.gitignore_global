@@ -32,7 +32,8 @@ Temporary Items
 # Misc
 .wakatime-project
 
-.sentryclirc
+# allow
+!.gitkeep
 
 # IntelliJ IDEA
 .idea

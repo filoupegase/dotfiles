@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -e
+
+if ! command -v fnm &>/dev/null; then
+  echo "fnm not found, exiting..."
+  return
+fi
 
 # fetch and install Volta (better nvm)
 if ! command -v volta &>/dev/null; then
-  # curl https://get.volta.sh | bash -s -- --skip-setup
   brew install volta
 fi
 
-volta install node@latest # remove when LTS officially supports arm64
+# volta install node@latest # remove when LTS officially supports arm64
 volta install npm@8
 volta install yarn@1
 volta fetch node@lts # not native on M1 but good to have
@@ -21,6 +25,7 @@ volta list pnpm
 
 # npm ls --global --parseable --depth=0 | awk '{gsub(/\/.*\//,"",$1); print}' | sort -u
 packages=(
+  @angular/cli
   @babel/cli
   @babel/core
   @lhci/cli
@@ -28,10 +33,11 @@ packages=(
   autoprefixer
   cross-env
   depcheck
-  dtslint
   dts-gen
+  dtslint
   esbuild
   eslint
+  gatsby-cli
   gzip-size-cli
   json-server
   markdownlint-cli2
@@ -46,6 +52,7 @@ packages=(
   prettier
   release-it
   rollup
+  serverless
   stylelint
   superstatic
   svgo

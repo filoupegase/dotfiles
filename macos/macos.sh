@@ -12,14 +12,14 @@ sudo softwareupdate --install --all
 sudo softwareupdate --install-rosetta --agree-to-license
 
 # Install Xcode Command Line Tools
-#sudo xcode-select --install
+sudo xcode-select --install
 # Accept Xcode license
-#sudo xcodebuild -license accept
+sudo xcodebuild -license accept
 
 # This whole thing kinda hinges on having Homebrew...
 # Check for it and install from GitHub if it's not there
 if ! command -v brew &>/dev/null; then
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Disable analytics
@@ -41,7 +41,7 @@ chmod 755 "$(brew --prefix)/share/zsh/site-functions"
 
 # Install all apps from the Brewfile, ignore errors
 brew tap homebrew/bundle
-brew bundle || true
+brew bundle --no-lock || true
 
 # Set macOS defaults
 # Needs to be last since this will restart everything when done
