@@ -20,7 +20,7 @@ alias g="git"
 alias gc="git commit -m"  # + commit message
 alias gca="git add . && git commit -m"  # + commit message
 alias gs="git status -sb"
-alias gl="git log --pretty=short"
+alias gl="git log --graph --oneline --decorate"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias gpom="git push origin main"
@@ -113,8 +113,10 @@ alias run-bo="pnpm nx run front-accounting:start"
 alias run-adb="pnpm nx run front-adb:start"
 alias run-ml-admin="pnpm nx run front-ml-admin:start"
 alias run-poloc="pnpm nx run front-poloc:start"
-alias pdata="pnpm nx run plato:pdata-runner" # + script path
+alias pplato="pnpm nx run plato:pdata-runner" # + script path
 alias anton="pdata scripts/pdata/ML-12106.ts"
+alias scope_admin="pnpm nx run ms-associate:pdata scripts/pdata/2024-12/create-admin-scopes-group.ts"
+alias scope_agencies="pnpm nx run ms-associate:pdata scripts/pdata/2024-12/add-all-agencies-to-accounting-director.ts"
 
 # MS
 alias ms-ged="cd ~/emeria/millenium/applications && duck start --ms-ged"

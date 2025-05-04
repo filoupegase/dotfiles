@@ -1,7 +1,6 @@
 ###############################
 #  Taps                       #
 ###############################
-tap "1password/tap"
 tap "dart-lang/dart"
 tap "dopplerhq/cli"
 tap "hashicorp/tap"
@@ -78,7 +77,6 @@ brew "libyaml"
 brew "mhash"
 brew "mtr"
 brew "p7zip"
-brew "pkg-config"
 brew "protobuf"
 brew "rlwrap"
 brew "rsync"
@@ -96,7 +94,6 @@ brew "gh"
 brew "glab"
 
 # mostly development stuff
-brew "1password/tap/1password-cli" if OS.mac?
 brew "asciinema"
 brew "aws-shell"
 brew "awscli"
@@ -173,13 +170,25 @@ brew "nmap"
 brew "nuclei"
 brew "pdfcrack"
 brew "pngcheck"
-brew "sqlmap"
 brew "subfinder"
 brew "tcpdump"
 brew "tcpflow"
 brew "tcpreplay"
 brew "tcptrace"
 brew "vbindiff"
+
+###############################
+#  Emeria Tech                #
+###############################
+
+brew "pkg-config"
+brew "cairo"
+brew "pango"
+brew "libpng"
+brew "jpeg"
+brew "giflib"
+brew "librsvg"
+brew "python-setuptools"
 
 ###############################
 #  macOS Apps via Cask        #
@@ -205,7 +214,6 @@ cask "transmission"
 cask "vnc-viewer"
 
 # Passwords, VPNs, other Security
-cask "1password"
 cask "authy"
 cask "gpg-suite"
 cask "little-snitch"
@@ -317,7 +325,6 @@ cask "homebrew/cask-fonts/font-sf-pro"
 
 # Third Party
 # mas "1Blocker", id: 1365531024
-# mas "1Password for Safari", id: 1569813296
 # mas "Amphetamine", id: 937984704
 # mas "Drafts", id: 1435957248
 # mas "Magnet", id: 441258766

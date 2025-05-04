@@ -13,5 +13,11 @@ Brewfile.lock.json
 *id_rsa*
 *id_ed25519*
 
+# IntelliJ IDEA
 .idea/
-.DS_Store
+
+Brewfile
+
+git/
+
+ssh/

@@ -25,3 +25,11 @@ fi
 
 # uncomment to debug startup time (2/2)
 [[ "$DOTFILES_DEBUG" != "1" ]] || zprof
+
+# # pnpm
+# export PNPM_HOME="/Users/corentin/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
+# # pnpm end
