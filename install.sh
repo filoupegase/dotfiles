@@ -64,7 +64,7 @@ if [[ "$OSTYPE" = darwin* ]]; then
   touch ~/.bash_sessions_disable
 
   source "$DOTFILES/macos/macos.sh"
-elif [[ "$OSTYPE" = linux-gnu* ]]; then
+elif [[ "$OSTYPE" = linux-gnu* ]] && [[ -z "$CODESPACES" ]]; then
   source "$DOTFILES/linux/linux.sh"
 else
   echo "I don't recognize this OS... skipping extra steps."

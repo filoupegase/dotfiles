@@ -79,8 +79,6 @@ if [[ -x "$BREW_BIN" ]]; then
     export LDFLAGS CPPFLAGS PKG_CONFIG_PATH RUBY_CONFIGURE_OPTS
     unset gnubin gnuman compiler_libs lib
   fi
-else
-  echo "⚠️ Homebrew can't be found in any of the normal locations. Are you sure it's installed?"
 fi
 
 # go
@@ -120,6 +118,11 @@ if [[ -d "$HOME/.volta" ]]; then
   export VOLTA_FEATURE_PNPM=1
   path=("$VOLTA_PATH/bin" $path)
 fi
+
+# pnpm
+#  if [[ -d "$HOME/.local/share/pnpm" ]]; then
+#    path=("$HOME/.local/share/pnpm" $path)
+#  fi
 
 # docker user mode, see: https://docs.docker.com/desktop/mac/permission-requirements/#installing-symlinks
 if [[ -d "$HOME/.docker/bin" ]]; then
