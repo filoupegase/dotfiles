@@ -1,0 +1,27 @@
+# auto-generated files
+.zcompdump*
+.zcompcache*
+
+# compiled .zsh sources
+*.zwc
+
+# homebrew lockfile
+Brewfile.lock.json
+
+# oopsie proofing
+**/.ssh/known_hosts*
+*id_rsa*
+*id_ed25519*
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store
