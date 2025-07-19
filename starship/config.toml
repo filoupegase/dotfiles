@@ -1,0 +1,122 @@
+# https://starship.rs/config/
+"$schema" = "https://starship.rs/config-schema.json"
+
+# A minimal left prompt:
+# format = """$character"""
+# right_format = """$all"""
+
+[aws]
+disabled = true
+
+[battery]
+disabled = true
+
+[cmd_duration]
+min_time = 2500
+
+[container]
+disabled = true
+
+[character]
+error_symbol = "[✖](bold red) "
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+read_only = "🔒 "
+
+[directory.substitutions]
+"~" = ".* ~"
+#" ~/Documents" = " ~/Documents"
+#" ~/Downloads" = " ~/Downloads"
+#" ~/Desktop" = " ~/Desktop"
+#" ~/Music" = " ~/Music"
+#" ~/Pictures" = " ~/Pictures"
+#" ~/Library" = " ~/Library"
+#" ~/Dropbox" = " ~/Dropbox"
+#" ~/source" = " ~/source"
+#" ~/.dotfiles" = " ~/.dotfiles"
+
+[gcloud]
+disabled = true
+
+[git_branch]
+symbol = " "
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = '  '
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏃‍♂️ 🏎️ 💨 ×${count} "
+behind = "🐢 ×${count} "
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
+untracked = "🛤️  ×${count} "
+stashed = "📦 "
+modified = "📝 ×${count} "
+staged = "🗃️  ×${count} "
+renamed = "📛 ×${count} "
+deleted = "🗑️  ×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
+
+#[aws]
+#format = 'on [$symbol($profile )(\($region\) )]($style)'
+#style = 'bold blue'
+#symbol = '🅰 '
+#[aws.region_aliases]
+#ap-southeast-2 = 'au'
+#us-east-1 = 'va'
+
+#[aws.profile_aliases]
+#CompanyGroupFrobozzOnCallAccess = 'Frobozz'
+
+[golang]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[docker_context]
+format = 'via [ $context](blue bold) '
+symbol = " "
+
+[deno]
+format = 'via [🦕 $version](green bold) '
+
+[c]
+symbol = " "
+
+[package]
+symbol = " "
+
+[php]
+symbol = "🐘 "
+
+[python]
+symbol = "🐍 "
+pyenv_version_name = true
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
+
+[username]
+format = "[ $user]($style) "
+style_root = "bold bright-red"
+style_user = "bold bright-red"
+
+[vagrant]
+disabled = true
