@@ -33,38 +33,46 @@ fi
 if [[ ! -d ~/.ssh ]]; then
   mkdir -p ~/.ssh && chmod 700 ~/.ssh
 fi
-
+ln -sf "$DOTFILES/zsh/.zshrc" ~/.zshrc
+ln -sf "$DOTFILES/zsh/.zprofile" ~/.zprofile
 ln -sf "$DOTFILES/bash/.bash_profile" ~/.bash_profile
+ln -sf "$DOTFILES/ssh/.ssh/config" ~/.ssh/config
+ln -sf "$DOTFILES/git/.gitconfig" ~/.gitconfig
+ln -sf "$DOTFILES/git/.gitignore_global" ~/.gitignore
+ln -sf "$DOTFILES/starship/config.toml" ~/.config/starship.toml
+
+# this file will be sourced by .zshrc for more sensitive variables/settings
+touch ~/.zshrc.local
+
+# prepare zinit manually
+ZINIT_HOME="${ZINIT_HOME:-"${XDG_DATA_HOME:-"${HOME}/.local/share"}/zinit/zinit.git"}"
+if [[ ! -d "$ZINIT_HOME" ]]; then
+  mkdir -p "$(dirname "$ZINIT_HOME")"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# the remainder of the setup tasks are OS-specific
+if [[ "$OSTYPE" = darwin* ]]; then
+  ln -sf "$DOTFILES/Brewfile" ~/Brewfile
+
+  # suppress terminal login banners
+  touch ~/.hushlogin
+
+  # disable bash session restoration
+  touch ~/.bash_sessions_disable
+
+  source "$DOTFILES/macos/macos.sh"
+elif [[ "$OSTYPE" = linux-gnu* ]] && [[ -z "$CODESPACES" ]]; then
+  source "$DOTFILES/linux/linux.sh"
+else
+  echo "I don't recognize this OS... skipping extra steps."
+fi
 
 # wow
 echo ""
 echo "🤯 It actually worked!"
 echo "Log out and log back in (or just restart) to finish installing all ZSH features."
 
-# # set up symlinks from various default paths to files in this repo
-# if [[ ! -d ~/.config ]]; then
-#   mkdir -p ~/.config
-# fi
-# if [[ ! -d ~/.ssh ]]; then
-#   mkdir -p ~/.ssh && chmod 700 ~/.ssh
-# fi
-# ln -sf "$DOTFILES/zsh/.zshrc" ~/.zshrc
-# ln -sf "$DOTFILES/zsh/.zprofile" ~/.zprofile
-# ln -sf "$DOTFILES/bash/.bash_profile" ~/.bash_profile
-# ln -sf "$DOTFILES/ssh/.ssh/config" ~/.ssh/config
-# ln -sf "$DOTFILES/git/.gitconfig" ~/.gitconfig
-# ln -sf "$DOTFILES/git/.gitignore_global" ~/.gitignore
-# ln -sf "$DOTFILES/starship/config.toml" ~/.config/starship.toml
-#
-# # this file will be sourced by .zshrc for more sensitive variables/settings
-# touch ~/.zshrc.local
-#
-# # prepare zinit manually
-# ZINIT_HOME="${ZINIT_HOME:-"${XDG_DATA_HOME:-"${HOME}/.local/share"}/zinit/zinit.git"}"
-# if [[ ! -d "$ZINIT_HOME" ]]; then
-#   mkdir -p "$(dirname "$ZINIT_HOME")"
-#   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-# fi
 #
 # # the remainder of the setup tasks are OS-specific
 # if [[ "$OSTYPE" = darwin* ]]; then
@@ -85,8 +93,3 @@ echo "Log out and log back in (or just restart) to finish installing all ZSH fea
 # else
 #   echo "I don't recognize this OS... skipping extra steps."
 # fi
-#
-# # wow
-# echo ""
-# echo "🤯 It actually worked!"
-# echo "Log out and log back in (or just restart) to finish installing all ZSH features."

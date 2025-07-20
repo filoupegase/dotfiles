@@ -1,4 +1,4 @@
-# General
+# Finder (MacOS) folder config
 .DS_Store
 .DS_Store?
 .AppleDouble
@@ -35,5 +35,12 @@ Temporary Items
 # allow
 !.gitkeep
 
-# JetBrain
-.idea/
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# IntelliJ based IDEs
+.idea

@@ -45,7 +45,7 @@ dbar() {
 dsh() {
   docker exec -it "$1" /bin/sh
 }
-# alias dc="docker-compose"
+alias dc="docker-compose"
 alias dc="docker compose"
 alias dcu="dc up -d"
 alias dcd="dc down"
@@ -67,11 +67,14 @@ alias mpls="multipass list"
 alias mpsh="multipass shell"
 alias mpk="multipass stop"
 
+
 # Node/NPM/Yarn
 alias npr="npm run"
 alias yar="yarn run"
 alias pnpr="pnpm run"
+alias fresh_npm="rm -rf node_modules package-lock.json && npm install"
 alias fresh_yarn="rm -rf node_modules yarn.lock && yarn install"
+alias fresh_pnpm="rm -rf node_modules pnpm-lock.yaml && pnpm store prune && pnpm install"
 
 # an original creation, see https://github.com/jakejarvis/simpip
 alias ipv4="curl -4 simpip.com --max-time 1 --proto-default https --silent"
@@ -96,27 +99,3 @@ alias iplocal="ipconfig getifaddr en0"
 # misc.
 alias screenfetch="neofetch"
 alias weather="curl 'https://wttr.in/?format=v2'"
-
-# EMERIA
-alias fr='echo "fr158785"'
-
-# plato
-alias plato="pnpm nx run plato:start"
-alias plato-skip-cache="pnpm store prune && pnpm nx reset && pnpm nx run plato:start --skip-nx-cache"
-alias worker-plato="pnpm nx run worker all"
-alias flow-plato="pnpm nx run workflows --all"
-
-# NX
-alias run-bo="pnpm nx run front-accounting:start"
-alias run-adb="pnpm nx run front-adb:start"
-alias run-ml-admin="pnpm nx run front-ml-admin:start"
-alias run-poloc="pnpm nx run front-poloc:start"
-alias pdata="pnpm nx run plato:pdata-runner" # + script path
-alias anton="pdata scripts/pdata/ML-12106.ts"
-
-# MS
-alias ms-ged="cd ~/emeria/millenium/applications && duck start --ms-ged"
-alias ms-ged_worker="cd ~/emeria/millenium/applications/ms-ged && pnpm nx run start:worker all"
-alias ms-document="cd ~/emeria && duck start --ms-document"
-alias ms-customer="cd ~/emeria/millenium/applications && duck start --ms-customer"
-alias docus="cd ~/emeria/millenium && pnpm nx run docus:start"

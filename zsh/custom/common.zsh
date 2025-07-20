@@ -60,9 +60,6 @@ export HISTFILE="${HISTFILE:-$HOME/.zsh_history}"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
-export EDITOR="vim"
-#export VISUAL="code --new-window --wait"
-
 export PAGER="less"
 export LESS="$LESS -RF --mouse --silent"
 

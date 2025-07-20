@@ -106,6 +106,7 @@ brew "composer"
 brew "croc"
 brew "dart-lang/dart/dart"
 brew "deno"
+brew "oven-sh/bun/bun" # for macOS and Linux
 brew "dive"
 brew "doctl"
 brew "dopplerhq/cli/doppler"
