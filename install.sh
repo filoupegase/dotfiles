@@ -72,24 +72,3 @@ fi
 echo ""
 echo "🤯 It actually worked!"
 echo "Log out and log back in (or just restart) to finish installing all ZSH features."
-
-#
-# # the remainder of the setup tasks are OS-specific
-# if [[ "$OSTYPE" = darwin* ]]; then
-#   # final symlinks
-#   ln -sf "$DOTFILES/nano/brew.nanorc" ~/.nanorc
-#   ln -sf "$DOTFILES/Brewfile" ~/Brewfile
-#
-#
-#   # suppress terminal login banners
-#   touch ~/.hushlogin
-#
-#   # disable bash session restoration
-#   touch ~/.bash_sessions_disable
-#
-#   source "$DOTFILES/macos/macos.sh"
-# elif [[ "$OSTYPE" = linux-gnu* ]]; then
-#   source "$DOTFILES/linux/linux.sh"
-# else
-#   echo "I don't recognize this OS... skipping extra steps."
-# fi

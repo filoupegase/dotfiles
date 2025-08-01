@@ -7,21 +7,8 @@ if ! command -v fnm &>/dev/null; then
   return
 fi
 
-# fetch and install Volta (better nvm)
-if ! command -v volta &>/dev/null; then
-  brew install volta
-fi
-
-# volta install node@latest # remove when LTS officially supports arm64
-volta install npm@8
-volta install yarn@1
-volta fetch node@lts # not native on M1 but good to have
-volta install pnpm@latest
-
-volta list node
-volta list npm
-volta list yarn
-volta list pnpm
+fnm install --latest --corepack-enabled
+npm install --global npm
 
 # npm ls --global --parseable --depth=0 | awk '{gsub(/\/.*\//,"",$1); print}' | sort -u
 packages=(
@@ -65,9 +52,7 @@ packages=(
 )
 
 for p in "${packages[@]}"; do
-  volta run --no-yarn -- npm install --global "$p" || echo "$p not found"
+  NPM_CONFIG_FUND=false npm install --global --no-audit "$p" || echo "$p not found"
 done
 
 unset p packages
-
-volta list all

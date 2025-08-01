@@ -257,7 +257,7 @@ cask "slack"
 # Pentesting
 cask "burp-suite"
 cask "charles"
-cask "metasploit"
+#cask "metasploit"
 cask "wifi-explorer"
 cask "wireshark"
 
@@ -275,7 +275,7 @@ cask "homebrew/cask-drivers/logi-options-plus"
 cask "homebrew/cask-drivers/philips-hue-sync"
 cask "homebrew/cask-drivers/sonos"
 cask "homebrew/cask-drivers/yubico-authenticator"
-cask "homebrew/cask-drivers/yubico-yubikey-manager"
+#cask "homebrew/cask-drivers/yubico-yubikey-manager"
 
 ###############################
 #  Fonts                      #
