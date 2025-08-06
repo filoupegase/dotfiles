@@ -40,6 +40,7 @@ ln -sf "$DOTFILES/ssh/.ssh/config" ~/.ssh/config
 ln -sf "$DOTFILES/git/.gitconfig" ~/.gitconfig
 ln -sf "$DOTFILES/git/.gitignore_global" ~/.gitignore
 ln -sf "$DOTFILES/starship/config.toml" ~/.config/starship.toml
+ln -sf "$DOTFILES/vim/.vimrc" ~/.vimrc
 
 # this file will be sourced by .zshrc for more sensitive variables/settings
 touch ~/.zshrc.local

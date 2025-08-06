@@ -1,5 +1,13 @@
 #!/usr/bin/env zsh
 
+# System
+alias shutdown='sudo shutdown now'
+alias restart='sudo reboot'
+alias suspend='sudo pm-suspend'
+alias sleep='pmset sleepnow'
+alias c='clear'
+alias e='exit'
+
 # allow sudo-able aliases
 alias sudo="sudo "
 
@@ -13,11 +21,18 @@ alias l="ll"
 alias shreload="exec \$SHELL"
 alias shdebug="DOTFILES_DEBUG=1 exec \$SHELL"
 
-# git
-alias g="git"
+# Git
+alias g='git'
+alias ga='git add'
+alias gafzf='git ls-files -m -o --exclude-standard | grep -v "__pycache__" | fzf -m --print0 | xargs -0 -o -t git add' # Git add with fzf
+alias grmfzf='git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 -o -t git rm' # Git rm with fzf
+alias grfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore' # Git restore with fzf
+alias grsfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore --staged' # Git restore --staged with fzf
+alias gf='git fetch'
+alias gs='git status -sb'
+
 alias gc="git commit -m"  # + commit message
 alias gca="git add . && git commit -m"  # + commit message
-alias gs="git status -sb"
 alias gl="git log --pretty=short"
 alias gd="git diff"
 alias gds="git diff --staged"
@@ -99,3 +114,7 @@ alias iplocal="ipconfig getifaddr en0"
 # misc.
 alias screenfetch="neofetch"
 alias weather="curl 'https://wttr.in/?format=v2'"
+
+# Folders
+alias doc="$HOME/Documents"
+alias dow="$HOME/Downloads"

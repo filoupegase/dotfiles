@@ -1,18 +1,17 @@
 ###############################
 #  Taps                       #
 ###############################
+tap "homebrew/cask"
+tap "homebrew/core"
 tap "1password/tap"
 tap "dart-lang/dart"
 tap "dopplerhq/cli"
 tap "hashicorp/tap"
 tap "homebrew/aliases"
 tap "homebrew/autoupdate"
-tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "microsoft/git"
 tap "ngrok/ngrok"
@@ -52,6 +51,7 @@ brew "nano"
 brew "ncurses"
 brew "openssh" unless OS.linux?
 brew "openssl@1.1" if OS.mac?
+# Library for command-line editing
 brew "readline"
 brew "screen"
 brew "sqlite"
@@ -137,8 +137,9 @@ brew "pyenv-virtualenv"
 # brew "python@2"
 brew "qemu"
 brew "rbenv"
-# brew "ruby"
-brew "ruby-build"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Safe, concurrent, practical language
 brew "rust"
 brew "s3cmd"
 brew "sass/sass/dart-sass-embedded"
@@ -263,7 +264,6 @@ cask "wireshark"
 
 # Browsers
 cask "firefox"
-cask "firefox-developer-edition"
 cask "google-chrome"
 cask "tor-browser"
 
@@ -317,8 +317,8 @@ cask "homebrew/cask-fonts/font-sf-pro"
 # mas "Xcode", id: 497799835
 
 # Third Party
-mas "1Blocker", id: 1365531024
-mas "1Password for Safari", id: 1569813296
+#mas "1Blocker", id: 1365531024
+#mas "1Password for Safari", id: 1569813296
 # mas "Amphetamine", id: 937984704
 # mas "Drafts", id: 1435957248
 # mas "Magnet", id: 441258766
