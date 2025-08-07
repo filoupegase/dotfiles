@@ -25,9 +25,3 @@ fi
 
 # uncomment to debug startup time (2/2)
 [[ "$DOTFILES_DEBUG" != "1" ]] || zprof
-# fnm
-FNM_PATH="/Users/corentin/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/Users/corentin/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
