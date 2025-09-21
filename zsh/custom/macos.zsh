@@ -2,11 +2,10 @@
 
 export BROWSER="/Applications/Firefox.app/Contents/MacOS/firefox"
 
-# TODO : 1Password SSH agent
 # https://developer.1password.com/docs/ssh/get-started#step-4-configure-your-ssh-or-git-client
-# if [[ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]]; then
-#   export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-# fi
+if [[ -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ]]; then
+  export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+fi
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"  # --require-sha
 export HOMEBREW_FORCE_BREWED_CURL=1
@@ -28,10 +27,10 @@ system_update() {
   brew upgrade $(brew outdated --greedy --verbose | awk '$2 !~ /(latest)/ {print $1}')
   brew cleanup
 
-#  # node, npm, yarn
-#   echo -e "${YELLOW}Updating global NPM/Yarn packages...${NC}"
-#   fnm install --latest --corepack-enabled
-#   npm update --global --no-audit
+  # node, npm, yarn
+  echo -e "${YELLOW}Updating global NPM/Yarn packages...${NC}"
+  fnm install --latest --corepack-enabled
+  npm update --global --no-audit
 
   # ruby, gems
   echo -e "${YELLOW}Updating Ruby and gems...${NC}"
@@ -53,18 +52,6 @@ system_update() {
   zinit self-update
   zinit update --all
 
-  # node, npm, yarn, pnpm & package
-  echo -e "${YELLOW}Updating global NPM/Yarn packages...${NC}"
-  volta fetch node@latest # pull latest non-LTS version but don't use it
-  volta install node@lts
-  volta install yarn@1
-  volta install pnpm@latest
-  volta run --node lts --no-yarn -- npm update --global
-  volta run --node lts --yarn 1 -- yarn global upgrade
-
-  # Millenuim
-  volta install @fonciastark/foncia-duck@latest
-
   # App Store
   echo -e "${YELLOW}Checking for App Store updates...${NC}"
   mas outdated
@@ -77,7 +64,7 @@ system_update() {
 alias unhidden="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias rehidden="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias force_empty="sudo rm -rf ~/.Trash /Volumes/*/.Trashes"
-alias unq="sudo xattr -rd com.apple.quarantine
+alias unq="sudo xattr -rd com.apple.quarantine"
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesk="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"

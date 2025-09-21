@@ -12,12 +12,3 @@ Brewfile.lock.json
 **/.ssh/known_hosts*
 *id_rsa*
 *id_ed25519*
-
-# IntelliJ IDEA
-.idea/
-
-Brewfile
-
-git/
-
-ssh/

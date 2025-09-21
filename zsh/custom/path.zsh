@@ -21,6 +21,14 @@ fi
 if [[ -x "$BREW_BIN" ]]; then
   eval "$("$BREW_BIN" shellenv)"
 
+  # macOS-only remedies
+  if [[ "$OSTYPE" = darwin* ]]; then
+    # manually add VS Code 'code' command to path
+    # https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
+    if [[ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]]; then
+      path=("/Applications/Visual Studio Code.app/Contents/Resources/app/bin" $path)
+    fi
+
     # remap macOS core utils to GNU equivalents without needing the 'g' prefix (e.g. ggrep -> grep):
     # https://gist.github.com/skyzyx/3438280b18e4f7c490db8a2a2ca0b9da?permalink_comment_id=3049694#gistcomment-3049694
     for gnubin in "$(brew --prefix)"/opt/*/libexec/gnubin; do
@@ -112,20 +120,18 @@ if command -v pyenv &>/dev/null; then
   fi
 fi
 
-# volta
-if [[ -d "$HOME/.volta" ]]; then
-  export VOLTA_PATH="$HOME/.volta"
-  export VOLTA_FEATURE_PNPM=1
-  path=("$VOLTA_PATH/bin" $path)
-fi
-
 # pnpm
-#  if [[ -d "$HOME/.local/share/pnpm" ]]; then
-#    path=("$HOME/.local/share/pnpm" $path)
-#  fi
+if [[ -d "$HOME/.local/share/pnpm" ]]; then
+  path=("$HOME/.local/share/pnpm" $path)
+fi
 
 # docker user mode, see: https://docs.docker.com/desktop/mac/permission-requirements/#installing-symlinks
 if [[ -d "$HOME/.docker/bin" ]]; then
+  path=("$HOME/.docker/bin" $path)
+fi
+
+# port-kill https://github.com/kagehq/port-kill
+if [[ -d "$HOME/.local/bin" ]]; then
   path=("$HOME/.docker/bin" $path)
 fi
 

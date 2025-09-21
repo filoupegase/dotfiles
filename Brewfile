@@ -1,6 +1,7 @@
 ###############################
 #  Taps                       #
 ###############################
+tap "1password/tap"
 tap "dart-lang/dart"
 tap "dopplerhq/cli"
 tap "hashicorp/tap"
@@ -94,6 +95,7 @@ brew "gh"
 brew "glab"
 
 # mostly development stuff
+brew "1password/tap/1password-cli" if OS.mac?
 brew "asciinema"
 brew "aws-shell"
 brew "awscli"
@@ -171,6 +173,7 @@ brew "nuclei"
 brew "pdfcrack"
 brew "pngcheck"
 brew "subfinder"
+# brew "sqlmap"
 brew "tcpdump"
 brew "tcpflow"
 brew "tcpreplay"
@@ -214,6 +217,7 @@ cask "transmission"
 cask "vnc-viewer"
 
 # Passwords, VPNs, other Security
+cask "1password"
 cask "authy"
 cask "gpg-suite"
 cask "little-snitch"
@@ -324,7 +328,8 @@ cask "homebrew/cask-fonts/font-sf-pro"
 # mas "Xcode", id: 497799835
 
 # Third Party
-# mas "1Blocker", id: 1365531024
+mas "1Blocker", id: 1365531024
+mas "1Password for Safari", id: 1569813296
 # mas "Amphetamine", id: 937984704
 # mas "Drafts", id: 1435957248
 # mas "Magnet", id: 441258766

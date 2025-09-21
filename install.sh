@@ -18,7 +18,7 @@ fi
 
 # clone this repo if this script is all by itself and/or we're not in the expected location
 if [[ "$INSTALLER_PATH" != "$DOTFILES" ]] && [[ ! -d "$DOTFILES" ]]; then
-  git clone https://github.com/filoupegase/dotfiles.git "$DOTFILES"
+  git clone https://github.com/filoupegase/dotfiles_locked.git "$DOTFILES"
 
   echo "Successfully cloned the full repo to '$DOTFILES'"
   echo "Run install.sh from that directory to continue. Exiting now..."
@@ -52,10 +52,7 @@ fi
 
 # the remainder of the setup tasks are OS-specific
 if [[ "$OSTYPE" = darwin* ]]; then
-  # final symlinks
-  ln -sf "$DOTFILES/nano/brew.nanorc" ~/.nanorc
   ln -sf "$DOTFILES/Brewfile" ~/Brewfile
-
 
   # suppress terminal login banners
   touch ~/.hushlogin

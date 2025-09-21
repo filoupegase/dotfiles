@@ -74,4 +74,4 @@ if tty -s 2>/dev/null; then
 fi
 
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/theme-and-appearance.zsh#L5
-# export LS_COLORS="Gxfxcxdxbxegedabagacad"
+export LS_COLORS="Gxfxcxdxbxegedabagacad"
