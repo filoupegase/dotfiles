@@ -39,10 +39,6 @@ chsh -s "$(brew --prefix)/bin/zsh"
 chmod 755 "$(brew --prefix)/share/zsh"
 chmod 755 "$(brew --prefix)/share/zsh/site-functions"
 
-# Install all apps from the Brewfile, ignore errors
-brew tap homebrew/bundle
-brew bundle --no-lock || true
-
 # Set macOS defaults
 # Needs to be last since this will restart everything when done
 source ./macos/defaults.sh
