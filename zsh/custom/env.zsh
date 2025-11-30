@@ -33,3 +33,8 @@ export SAM_CLI_TELEMETRY=0
 export SLS_TELEMETRY_DISABLED=1
 export VAGRANT_CHECKPOINT_DISABLE=1
 export YARN_ENABLE_TELEMETRY=0
+
+export CLAUDE_CODE_USE_BEDROCK=1;
+
+alias claude="AWS_PROFILE=683890507554_bedrock AWS_REGION=us-east-2 claude" # Alias de la commande claude pour utiliser la bonne region et le bon profil AWS, a ajuster au besoin
+

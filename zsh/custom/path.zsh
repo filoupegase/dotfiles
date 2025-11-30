@@ -55,7 +55,6 @@ if [[ -x "$BREW_BIN" ]]; then
       gettext
       libxml2
       ncurses
-      openssl@1.1
       readline
       sqlite
       tcl-tk
@@ -74,7 +73,7 @@ if [[ -x "$BREW_BIN" ]]; then
     done
 
     # it's easier to do ruby opts separately as it needs different libraries than above in a very different format
-    RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline) --with-jemalloc-dir=$(brew --prefix jemalloc) --with-libffi-dir=$(brew --prefix libffi) --with-libyaml-dir=$(brew --prefix libyaml) $RUBY_CONFIGURE_OPTS"
+#     RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline) --with-jemalloc-dir=$(brew --prefix jemalloc) --with-libffi-dir=$(brew --prefix libffi) --with-libyaml-dir=$(brew --prefix libyaml) $RUBY_CONFIGURE_OPTS"
 
     # add xcode flags last
     if command -v xcrun &>/dev/null; then
@@ -130,10 +129,12 @@ if [[ -d "$HOME/.docker/bin" ]]; then
   path=("$HOME/.docker/bin" $path)
 fi
 
-# port-kill https://github.com/kagehq/port-kill
-if [[ -d "$HOME/.local/bin" ]]; then
-  path=("$HOME/.docker/bin" $path)
-fi
+# # port-kill https://github.com/kagehq/port-kill
+# if [[ -d "$HOME/.local/bin/port-kill" ]]; then
+#   path=("$PORTPATH/.local/bin/port-kill" $path)
+# fi
+
+export PATH="$PATH:$HOME/.local/bin"
 
 # let zsh sort out formatting and deduplication
 typeset -aU path fpath manpath

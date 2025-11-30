@@ -49,7 +49,7 @@ packages=(
   vercel
   webpack
   webpack-cli
-  @fonciastark/foncia-duck@latest
+  @emeria/duck@latest
   @anthropic-ai/claude-code
   nx
 )

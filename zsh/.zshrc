@@ -25,3 +25,5 @@ fi
 
 # uncomment to debug startup time (2/2)
 [[ "$DOTFILES_DEBUG" != "1" ]] || zprof
+# bun completions
+[ -s "/Users/corentin/.bun/_bun" ] && source "/Users/corentin/.bun/_bun"

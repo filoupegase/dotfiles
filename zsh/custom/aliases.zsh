@@ -24,6 +24,8 @@ alias shdebug="DOTFILES_DEBUG=1 exec \$SHELL"
 # Git
 alias g='git'
 alias ga='git add'
+
+# Git && fzf
 alias gafzf='git ls-files -m -o --exclude-standard | grep -v "__pycache__" | fzf -m --print0 | xargs -0 -o -t git add' # Git add with fzf
 alias grmfzf='git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 -o -t git rm' # Git rm with fzf
 alias grfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore' # Git restore with fzf
@@ -94,6 +96,8 @@ alias mpls="multipass list"
 alias mpsh="multipass shell"
 alias mpk="multipass stop"
 
+alias pn="pnpm"
+
 # Node/NPM/Yarn
 alias npr="npm run"
 alias yar="yarn run"
@@ -140,14 +144,15 @@ alias run-bo="pnpm nx run front-accounting:start"
 alias run-adb="pnpm nx run front-adb:start"
 alias run-ml-admin="pnpm nx run front-ml-admin:start"
 
-alias run-gtw="pnpm nx run @emeria/gateway:start"
-
 alias pplato="pnpm nx run plato:pdata" # + script path
 alias anton="pdata scripts/pdata/ML-12106.ts"
 alias scope_admin="pnpm nx run ms-associate:pdata scripts/pdata/2024-12/create-admin-scopes-group.ts"
 alias scope_agencies="pnpm nx run ms-associate:pdata scripts/pdata/2024-12/add-all-agencies-to-accounting-director.ts"
 
 # MS
+alias run-gtw="pnpm nx run @emeria/gateway:start"
+alias ms-lease_start="pnpm nx run @emeria/service-lease:start"
+alias run-gtw-graphql-sdl="pnpm nx run @emeria/gateway:graphql:sdl --verdose"
 alias ms-ged="cd ~/emeria/millenium/applications && duck start --ms-ged"
 alias ms-ged_worker="cd ~/emeria/millenium/applications/ms-ged && pnpm nx run start:worker all"
 alias ms-document="cd ~/emeria && duck start --ms-document"

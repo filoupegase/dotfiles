@@ -51,7 +51,6 @@ brew "libxml2"
 brew "nano"
 brew "ncurses"
 brew "openssh" unless OS.linux?
-brew "openssl@1.1" if OS.mac?
 brew "readline"
 brew "screen"
 brew "sqlite"

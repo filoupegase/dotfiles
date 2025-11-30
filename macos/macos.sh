@@ -12,7 +12,7 @@ sudo softwareupdate --install --all
 sudo softwareupdate --install-rosetta --agree-to-license
 
 # Install Xcode Command Line Tools
-sudo xcode-select --install
+# sudo xcode-select --install
 # Accept Xcode license
 sudo xcodebuild -license accept
 
@@ -38,10 +38,6 @@ chsh -s "$(brew --prefix)/bin/zsh"
 # https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390187157
 chmod 755 "$(brew --prefix)/share/zsh"
 chmod 755 "$(brew --prefix)/share/zsh/site-functions"
-
-# Install all apps from the Brewfile, ignore errors
-brew tap homebrew/bundle
-brew bundle --no-lock || true
 
 # Set macOS defaults
 # Needs to be last since this will restart everything when done
