@@ -92,11 +92,10 @@ mpl() {
 mpd() {
   multipass delete "$1" && multipass purge
 }
+
 alias mpls="multipass list"
 alias mpsh="multipass shell"
 alias mpk="multipass stop"
-
-alias pn="pnpm"
 
 # Node/NPM/Yarn
 alias npr="npm run"
@@ -104,6 +103,7 @@ alias yar="yarn run"
 alias pnpr="pnpm run"
 alias fresh_yarn="rm -rf node_modules yarn.lock && yarn install"
 
+alias pn="pnpm"
 alias ps="pnpm start"
 
 # an original creation, see https://github.com/jakejarvis/simpip
@@ -122,6 +122,7 @@ alias ytmp3="youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 320K"
 alias fresh_all="find . -name 'node_modules' -type d -prune -exec rm -rf {} + ;"
 alias fresh_npm="rm -rf node_modules package-lock.json && npm install"
 alias fresh_pnpm="rm -rf node_modules pnpm-lock.yaml && pnpm store prune && pnpm install"
+alias fresh_all="find . -name 'node_modules' -type d -prune -exec rm -rf {} + ; pnpm store prune"
 
 # Check your current local IP address:
 alias iplocal="ipconfig getifaddr en0"
@@ -130,7 +131,7 @@ alias iplocal="ipconfig getifaddr en0"
 alias screenfetch="neofetch"
 alias weather="curl 'https://wttr.in/?format=v2'"
 
-# EMERIA
+# E T
 alias fr='echo "fr158785"'
 
 # plato
@@ -144,13 +145,14 @@ alias run-bo="pnpm nx run front-accounting:start"
 alias run-adb="pnpm nx run front-adb:start"
 alias run-ml-admin="pnpm nx run front-ml-admin:start"
 
-alias pplato="pnpm nx run plato:pdata" # + script path
+alias pplato="pnpm nx run plato:pdata-runner" # + script path like scripts/pdata/2025-12/PROD-28582.ts
 alias anton="pdata scripts/pdata/ML-12106.ts"
 alias scope_admin="pnpm nx run ms-associate:pdata scripts/pdata/2024-12/create-admin-scopes-group.ts"
 alias scope_agencies="pnpm nx run ms-associate:pdata scripts/pdata/2024-12/add-all-agencies-to-accounting-director.ts"
 
 # MS
-alias run-gtw="pnpm nx run @emeria/gateway:start"
+alias run-gtw='echo "run "gateway_start"'
+alias ms-gateway_start="pnpm nx run @emeria/gateway:start"
 alias ms-lease_start="pnpm nx run @emeria/service-lease:start"
 alias run-gtw-graphql-sdl="pnpm nx run @emeria/gateway:graphql:sdl --verdose"
 alias ms-ged="cd ~/emeria/millenium/applications && duck start --ms-ged"
